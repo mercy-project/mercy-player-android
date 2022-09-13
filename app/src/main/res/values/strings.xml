@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">MercyPlayer</string>
+
+    <string name="home">홈</string>
+    <string name="search">검색</string>
+    <string name="favorite">즐겨찾기</string>
+    <string name="settings">설정</string>
+
+    <string name="confirm">확인</string>
+    <string name="cancel">취소</string>
+    <string name="do_setting">설정하기</string>
+
+    <string name="app_finish">뒤로 버튼을 한번 더 누르시면 앱이 종료됩니다.</string>
+
+    <string name="error_default">인터넷 연결을 확인해주세요.</string>
+    <string name="hint_search">책 이름을 입력하세요</string>
+    <string name="empty_book">검색된 책이 없습니다.</string>
+
+    <string name="format_price">%,d원</string>
+    <string name="format_publisher_release">%s | %s</string>
+
+    <string name="format_sns_time_just_now">방금 전</string>
+    <string name="format_sns_time_min">%s분 전</string>
+    <string name="format_sns_time_hour">%s시간 전</string>
+    <string name="format_sns_time_day">%s일 전</string>
+
+    <string name="denied_external_storage_message">외부 저장소를 사용하려면 외부 저장소 사용 권한이 필요합니다.</string>
+    <string name="denied_external_storage_title">외부 저장소 사용에 대한 액세스 권한이 없습니다</string>
+    <string name="move_to_setting_permission">앱 설정에서 액세스 권한을 수정할 수 있습니다. 앱 설정 화면으로 이동 하시겠습니까?</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+</resources>

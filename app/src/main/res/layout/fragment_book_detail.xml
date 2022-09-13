@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="sideproject.mercy.presentation.ui.search.detail.viewmodel.BookDetailViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/purple_500"
+            app:buttonGravity="center_vertical"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_arrow_back_white"
+            app:onBackPressed="@{true}"
+            app:title="@{viewModel.bookInfoItemViewModel.title}"
+            app:titleTextColor="@color/white"
+            tools:title="책 제목">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:onClick="@{() -> viewModel.onClickLike()}"
+                android:src="@drawable/ic_favorite"
+                android:tint="@{viewModel.bookInfoItemViewModel.isLike() ? @color/like_on : @color/like_off}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_book"
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="20dp"
+                    app:image_url="@{viewModel.bookInfoItemViewModel.thumbnail}"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_book_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="@{viewModel.bookInfoItemViewModel.title}"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_book"
+                    app:layout_constraintVertical_chainStyle="spread"
+                    tools:text="책 이름" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_book_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.format(@string/format_publisher_release, viewModel.bookInfoItemViewModel.publisher, viewModel.bookInfoItemViewModel.datetime)}"
+                    android:textColor="@color/gray_ac"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_book_title"
+                    tools:text="출판사 | 출시일" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_book_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@{String.format(@string/format_price, viewModel.bookInfoItemViewModel.price)}"
+                    android:textColor="@color/red_price"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_book_date"
+                    tools:text="₩19,000" />
+
+                <View
+                    android:id="@+id/v_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/gray_line"
+                    app:layout_constraintTop_toBottomOf="@id/tv_book_price" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_book_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@{viewModel.bookInfoItemViewModel.contents}"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/v_line"
+                    app:lineHeight="26dp"
+                    tools:text="한줄 책 설명\n한줄 책 설명" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="sideproject.mercy.presentation.ui.main.viewmodel.MainViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/main_nav_host"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/main_graph" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnv_main"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:itemIconSize="20dp"
+            app:itemIconTint="@drawable/selector_bottom_navigation"
+            app:itemTextAppearanceActive="@style/BottomNavigationItemSelectedText"
+            app:itemTextAppearanceInactive="@style/BottomNavigationItemText"
+            app:itemTextColor="@drawable/selector_bottom_navigation"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/navigation" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="sideproject.mercy.presentation.ui.home.viewmodel.HomeMainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="타이틀 1"
+            android:textColor="@color/gray_333"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_content_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="컨텐츠 영역입니다."
+            android:textColor="@color/gray_666"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="타이틀 2"
+            android:textColor="@color/gray_333"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_content_1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_content_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="컨텐츠 영역입니다."
+            android:textColor="@color/gray_666"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

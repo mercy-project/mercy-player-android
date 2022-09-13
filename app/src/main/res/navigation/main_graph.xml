@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/menu_home">
+
+    <fragment
+        android:id="@+id/menu_home"
+        android:name="sideproject.mercy.presentation.ui.home.view.HomeMainFragment"
+        android:label="HomeMainFragment"
+        tools:layout="@layout/fragment_home_main"/>
+
+    <fragment
+        android:id="@+id/menu_search"
+        android:name="sideproject.mercy.presentation.ui.search.main.view.SearchMainFragment"
+        android:label="SearchMainFragment"
+        tools:layout="@layout/fragment_search_main">
+        <action
+            android:id="@+id/action_searchMainFragment_to_bookDetailFragment"
+            app:destination="@id/bookDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookDetailFragment"
+        android:name="sideproject.mercy.presentation.ui.search.detail.view.BookDetailFragment"
+        android:label="BookDetailFragment"
+        tools:layout="@layout/fragment_book_detail">
+        <argument
+            android:name="bookInfo"
+            app:argType="sideproject.mercy.domain.model.BookInfoItemViewModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menu_favorite"
+        android:name="sideproject.mercy.presentation.ui.favorite.view.FavoriteMainFragment"
+        android:label="FavoriteMainFragment"
+        tools:layout="@layout/fragment_favorite_main"/>
+
+    <fragment
+        android:id="@+id/menu_settings"
+        android:name="sideproject.mercy.presentation.ui.settings.view.SettingsMainFragment"
+        android:label="SettingsMainFragment" />
+</navigation>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="sideproject.mercy.domain.model.BookInfoItemViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="10dp"
+        app:onDebouncedClick="@{item::clickBookInfo}">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_book"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            app:image_url="@{item.thumbnail}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_book_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{item.title}"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tv_book_description"
+            app:layout_constraintEnd_toStartOf="@id/tv_book_date"
+            app:layout_constraintStart_toEndOf="@id/iv_book"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            tools:text="책 이름" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_book_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@{item.datetime}"
+            android:textColor="@color/gray_ac"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_book_title"
+            app:layout_constraintEnd_toStartOf="@id/iv_like"
+            app:layout_constraintStart_toEndOf="@id/tv_book_title"
+            app:layout_constraintTop_toTopOf="@id/tv_book_title"
+            tools:text="출시일" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_book_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{item.contents}"
+            android:textColor="@color/gray_ac"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_book_price"
+            app:layout_constraintEnd_toStartOf="@id/iv_like"
+            app:layout_constraintStart_toStartOf="@id/tv_book_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_book_title"
+            tools:text="한줄 책 설명" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_book_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/format_price, item.price)}"
+            android:textColor="@color/red_price"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_like"
+            app:layout_constraintStart_toStartOf="@id/tv_book_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_book_description"
+            tools:text="₩19,000" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:src="@drawable/ic_favorite"
+            android:tint="@{item.isLike() ? @color/like_on : @color/like_off}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
