@@ -1,4 +1,4 @@
-package sideproject.mercy.presentation.res
+package sideproject.mercy.presentation.base.res
 
 import androidx.annotation.StringRes
 

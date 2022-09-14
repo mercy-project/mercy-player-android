@@ -1,9 +1,10 @@
-package sideproject.mercy.presentation.res
+package sideproject.mercy.presentation.common.res
 
 import android.content.Context
 import sideproject.mercy.R
 import javax.inject.Inject
-import sideproject.mercy.presentation.res.DefaultStringProvider.Code.ERROR_DEFAULT
+import sideproject.mercy.presentation.base.res.IStringResourceGetter
+import sideproject.mercy.presentation.common.res.DefaultStringProvider.Code.ERROR_DEFAULT
 
 class DefaultStringProvider @Inject constructor(private val context: Context):
 	IStringResourceGetter {

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import sideproject.mercy.domain.getOrDefault
 import sideproject.mercy.domain.github.GetContributorsUseCase
-import sideproject.mercy.presentation.base.ui.BaseViewModel
+import sideproject.mercy.presentation.base.viewmodel.BaseViewModel
 import sideproject.mercy.shared.model.User
 import sideproject.mercy.domain.Result
 import dagger.hilt.android.lifecycle.HiltViewModel

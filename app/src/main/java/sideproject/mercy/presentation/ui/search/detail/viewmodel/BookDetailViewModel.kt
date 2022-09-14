@@ -2,7 +2,7 @@ package sideproject.mercy.presentation.ui.search.detail.viewmodel
 
 import androidx.databinding.ObservableField
 import sideproject.mercy.domain.model.BookInfoItemViewModel
-import sideproject.mercy.presentation.base.ui.BaseViewModel
+import sideproject.mercy.presentation.base.viewmodel.BaseViewModel
 
 class BookDetailViewModel : BaseViewModel() {
 

@@ -136,6 +136,7 @@ dependencies {
     implementation(Depends.AndroidX.Navigation.ui)
     implementation(Depends.AndroidX.startup)
     implementation(Depends.material)
+    implementation(Depends.threetenabp)
     implementation(Depends.timber)
     implementation(Depends.inject)
 

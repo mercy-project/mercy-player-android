@@ -1,12 +1,12 @@
-package sideproject.mercy.presentation.base.ui
+package sideproject.mercy.presentation.base.viewmodel
 
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.ViewModel
 import sideproject.mercy.domain.entity.ActionEntity
 import sideproject.mercy.domain.entity.ClickEntity
 import sideproject.mercy.presentation.ClickActionEventNotifier
-import sideproject.mercy.presentation.event.BaseEvent
-import sideproject.mercy.presentation.event.IBaseEvent
+import sideproject.mercy.presentation.base.event.BaseEvent
+import sideproject.mercy.presentation.base.event.IBaseEvent
 
 abstract class BaseViewModel : ViewModel(), ClickActionEventNotifier {
 

@@ -1,4 +1,4 @@
-package sideproject.mercy.presentation.event
+package sideproject.mercy.presentation.base.event
 
 import sideproject.mercy.domain.entity.ActionEntity
 import sideproject.mercy.domain.entity.ClickEntity

@@ -1,6 +1,6 @@
 package sideproject.mercy.presentation.ui.favorite.viewmodel
 
-import sideproject.mercy.presentation.base.ui.BaseViewModel
+import sideproject.mercy.presentation.base.viewmodel.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

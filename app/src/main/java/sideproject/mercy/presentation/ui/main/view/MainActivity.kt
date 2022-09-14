@@ -15,9 +15,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import sideproject.mercy.R
 import sideproject.mercy.databinding.ActivityMainBinding
-import sideproject.mercy.presentation.base.ui.NetworkHandler
-import sideproject.mercy.presentation.base.ui.NetworkHandlerImpl
-import sideproject.mercy.presentation.base.ui.PermissionCheckActivity
+import sideproject.mercy.presentation.base.viewmodel.NetworkHandler
+import sideproject.mercy.presentation.base.viewmodel.NetworkHandlerImpl
+import sideproject.mercy.presentation.common.activity.PermissionCheckActivity
 import sideproject.mercy.presentation.ui.main.viewmodel.MainViewModel
 import sideproject.mercy.utils.extensions.isGrantedPermission
 import sideproject.mercy.utils.extensions.parseUriPackageName

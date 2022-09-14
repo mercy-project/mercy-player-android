@@ -14,8 +14,8 @@ object TimeUtils {
     private const val HOUR = 24
     private const val DAY = 30
 
-    val baseDateFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("y년 M월 d일")
-    val updateTimeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("M월 d일 HH:mm")
+    private val baseDateFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("y년 M월 d일")
+    private val updateTimeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("M월 d일 HH:mm")
 
     private fun nowInEpoch(): Long {
         return Instant.now().epochSecond

@@ -1,7 +1,7 @@
 package sideproject.mercy.utils.time
 
 import sideproject.mercy.R
-import sideproject.mercy.presentation.res.IStringResourceGetter
+import sideproject.mercy.presentation.base.res.IStringResourceGetter
 import sideproject.mercy.utils.time.TimeStringBaseProvider.Code.DAY
 import sideproject.mercy.utils.time.TimeStringBaseProvider.Code.HOUR
 import sideproject.mercy.utils.time.TimeStringBaseProvider.Code.JUST_NOW

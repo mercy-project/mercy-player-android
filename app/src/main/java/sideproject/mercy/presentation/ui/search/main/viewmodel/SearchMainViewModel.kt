@@ -7,7 +7,7 @@ import sideproject.mercy.domain.book.SearchBooksInfoUseCase
 import sideproject.mercy.domain.book.SearchBooksInfoUseCase.Params
 import sideproject.mercy.domain.model.BookInfoItemViewModel
 import sideproject.mercy.domain.model.PagingMeta
-import sideproject.mercy.presentation.base.ui.BaseViewModel
+import sideproject.mercy.presentation.base.viewmodel.BaseViewModel
 import sideproject.mercy.utils.extensions.orFalse
 import sideproject.mercy.domain.Result
 import dagger.hilt.android.lifecycle.HiltViewModel

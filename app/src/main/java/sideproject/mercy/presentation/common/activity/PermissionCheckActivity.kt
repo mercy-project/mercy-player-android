@@ -1,4 +1,4 @@
-package sideproject.mercy.presentation.base.ui
+package sideproject.mercy.presentation.common.activity
 
 import android.content.Context
 import android.content.Intent

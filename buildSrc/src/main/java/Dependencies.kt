@@ -89,6 +89,7 @@ object Depends {
     }
 
     const val material = "com.google.android.material:material:1.3.0"
+	const val threetenabp = "com.jakewharton.threetenabp:threetenabp:1.3.1"
     const val timber = "com.jakewharton.timber:timber:5.0.1"
     const val inject = "javax.inject:javax.inject:1"
 

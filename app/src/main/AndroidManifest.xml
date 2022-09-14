@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".presentation.base.ui.PermissionCheckActivity"/>
+        <activity android:name=".presentation.common.activity.PermissionCheckActivity"/>
 
         <provider
             android:name="androidx.startup.InitializationProvider"
@@ -35,6 +35,9 @@
             tools:node="merge">
             <meta-data
                 android:name="sideproject.mercy.startup.TimberInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="sideproject.mercy.startup.ThreeTenInitializer"
                 android:value="androidx.startup" />
         </provider>
 

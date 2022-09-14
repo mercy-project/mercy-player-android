@@ -2,7 +2,7 @@ package sideproject.mercy.presentation.ui.search.main.viewmodel
 
 import android.content.Context
 import sideproject.mercy.R
-import sideproject.mercy.presentation.res.IStringResourceGetter
+import sideproject.mercy.presentation.base.res.IStringResourceGetter
 import sideproject.mercy.presentation.ui.search.main.viewmodel.SearchMainStringProvider.Code.ERROR_DEFAULT
 import javax.inject.Inject
 
