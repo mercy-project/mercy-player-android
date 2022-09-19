@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "386633259881",
+    "project_id": "sideproject-mercy-2a570",
+    "storage_bucket": "sideproject-mercy-2a570.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386633259881:android:a89765f7ed674e63bb7bf8",
+        "android_client_info": {
+          "package_name": "sideproject.mercy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386633259881-43qu095a3qf4u5nlm45rto76bkue7p19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhXm6sFb5OFc5TZIsPq3ys2VWiF2WmX4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386633259881-43qu095a3qf4u5nlm45rto76bkue7p19.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

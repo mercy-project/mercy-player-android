@@ -88,6 +88,24 @@ object Depends {
         const val compiler = "com.github.bumptech.glide:compiler:$glideVersion"
     }
 
+	object Firebase {
+		private const val googleServicesVersion = "4.3.13"
+		const val googleServicesPlugin = "com.google.gms:google-services:$googleServicesVersion"
+
+		private const val crashlyticsGradleVersion = "2.9.1"
+		const val crashlyticsGradlePlugin = "com.google.firebase:firebase-crashlytics-gradle:$crashlyticsGradleVersion"
+
+		private const val firebaseBomVersion = "30.3.1"
+
+		// Import the BoM for the Firebase platform
+		const val firebaseBom = "com.google.firebase:firebase-bom:$firebaseBomVersion"
+
+		// Declare the dependencies for the Crashlytics and Analytics libraries
+		// When using the BoM, you don't specify versions in Firebase library dependencies
+		const val firebaseCrashlyticsKtx = "com.google.firebase:firebase-crashlytics-ktx"
+		const val firebaseAnalyticsKtx = "com.google.firebase:firebase-analytics-ktx"
+	}
+
     const val material = "com.google.android.material:material:1.3.0"
 	const val threetenabp = "com.jakewharton.threetenabp:threetenabp:1.3.1"
     const val timber = "com.jakewharton.timber:timber:5.0.1"

@@ -12,6 +12,8 @@ buildscript {
         classpath(Depends.Dagger.hiltGradlePlugin)
         classpath(Depends.AndroidX.Navigation.safeArgs)
 	    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+	    classpath(Depends.Firebase.googleServicesPlugin)
+	    classpath(Depends.Firebase.crashlyticsGradlePlugin)
     }
 }
 
