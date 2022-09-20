@@ -21,8 +21,9 @@
     <color name="gray_333">#333333</color>
     <color name="gray_666">#666666</color>
 
-    <color name="color_71727A">#71727A</color>
-    <color name="color_00C880">#00C880</color>
-    <color name="color_ADADAD">#ADADAD</color>
+    <color name="color_71727a">#71727A</color>
+    <color name="color_00c880">#00C880</color>
+    <color name="color_adadad">#ADADAD</color>
+    <color name="color_e1e2e4">#E1E2E4</color>
 
 </resources>

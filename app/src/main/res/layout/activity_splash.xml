@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="42dp"
             android:text="@string/mercy_copyright"
-            android:textColor="@color/color_71727A"
+            android:textColor="@color/color_71727a"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
