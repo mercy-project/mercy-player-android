@@ -26,6 +26,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".presentation.ui.onboarding.view.OnBoardingActivity"/>
+
         <activity
             android:name=".presentation.ui.main.view.MainActivity"
             android:exported="true"
