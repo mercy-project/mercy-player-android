@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MercyPlayer</string>
+    <string name="app_name">V-Clip</string>
 
     <string name="home">홈</string>
     <string name="search">검색</string>
@@ -29,7 +29,15 @@
     <string name="denied_external_storage_title">외부 저장소 사용에 대한 액세스 권한이 없습니다</string>
     <string name="move_to_setting_permission">앱 설정에서 액세스 권한을 수정할 수 있습니다. 앱 설정 화면으로 이동 하시겠습니까?</string>
 
+    <string name="apply_policies_terms_message">로그인함으로써 V-Clip의 정책 및 약관에 동의합니다.</string>
+    <string name="terms_of_service">서비스이용 약관</string>
+    <string name="privacy_policy">개인정보 처리방침</string>
     <string name="mercy_copyright">Copyright © 2022 MERCY all rights reserved</string>
+
+    <string name="sign_in_google">구글 계정으로 로그인하기</string>
+
+    <string name="sign_in_title">Make an impact!</string>
+    <string name="sign_in_subtitle">나만을 위한 영상 리스트를 만들어보세요.</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>

@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import sideproject.mercy.databinding.ActivitySplashBinding
+import sideproject.mercy.presentation.ui.account.signin.view.SignInActivity
 import sideproject.mercy.presentation.ui.main.view.MainActivity
 import sideproject.mercy.presentation.ui.onboarding.view.OnBoardingActivity
 import sideproject.mercy.presentation.ui.splash.viewmodel.SplashViewModel
@@ -45,10 +46,18 @@ class SplashActivity : AppCompatActivity() {
 			return
 		}
 
-		val intent = Intent(this, MainActivity::class.java).apply {
-			flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-		}
+		// Todo: 로그인 사용자인지 체크 후 시작 화면 분기
+		// val intent = Intent(this, MainActivity::class.java).apply {
+		// 	flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+		// }
+		// startActivity(intent)
+		// finish()
 
+		moveToSignInActivity()
+	}
+
+	private fun moveToSignInActivity() {
+		val intent = Intent(this, SignInActivity::class.java)
 		startActivity(intent)
 		finish()
 	}
