@@ -13,19 +13,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import dagger.hilt.android.AndroidEntryPoint
+import java.util.concurrent.TimeUnit
 import sideproject.mercy.R
 import sideproject.mercy.databinding.ActivityMainBinding
 import sideproject.mercy.presentation.base.viewmodel.NetworkHandler
 import sideproject.mercy.presentation.base.viewmodel.NetworkHandlerImpl
 import sideproject.mercy.presentation.common.activity.PermissionCheckActivity
 import sideproject.mercy.presentation.ui.main.viewmodel.MainViewModel
+import sideproject.mercy.shared.log.L
 import sideproject.mercy.utils.extensions.isGrantedPermission
 import sideproject.mercy.utils.extensions.parseUriPackageName
 import sideproject.mercy.utils.extensions.permissionRationalOr
 import sideproject.mercy.utils.extensions.showToast
-import dagger.hilt.android.AndroidEntryPoint
-import java.util.concurrent.TimeUnit
-import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), NetworkHandler by NetworkHandlerImpl() {
@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity(), NetworkHandler by NetworkHandlerImpl()
 	
 	private fun initObserve() {
 		viewModel.contributors.observe(this) {
-			Timber.d("contributors: $it")
+			L.d("contributors: $it")
 		}
 	}
 
@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity(), NetworkHandler by NetworkHandlerImpl()
 		when (result.resultCode) {
 			// 권한이 허용되어있으면 항상 호출
 			PermissionCheckActivity.PERMISSION_RESULT_SUCCESS -> {
-				Timber.d("activityResultLauncher - ${Manifest.permission.READ_EXTERNAL_STORAGE} is Granted")
+				L.d("activityResultLauncher - ${Manifest.permission.READ_EXTERNAL_STORAGE} is Granted")
 			}
 			PermissionCheckActivity.PERMISSION_RESULT_FAIL -> {
 				permissionRationalOr(
@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity(), NetworkHandler by NetworkHandlerImpl()
 		ActivityResultContracts.StartActivityForResult()
 	) {
 		if (isGrantedPermission(Manifest.permission.READ_EXTERNAL_STORAGE)) {
-			Timber.d("settingResultLauncher - ${Manifest.permission.READ_EXTERNAL_STORAGE} is Granted")
+			L.d("settingResultLauncher - ${Manifest.permission.READ_EXTERNAL_STORAGE} is Granted")
 		}
 	}
 

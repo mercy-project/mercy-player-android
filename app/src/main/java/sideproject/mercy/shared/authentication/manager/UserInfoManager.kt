@@ -1,16 +1,15 @@
 package sideproject.mercy.shared.authentication.manager
 
 import android.content.Context
-import com.google.android.gms.auth.api.identity.SignInCredential
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.FirebaseUser
 import javax.inject.Singleton
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import sideproject.mercy.shared.log.L
 import sideproject.mercy.shared.model.UserInfo
 import sideproject.mercy.shared.storage.PreferenceStorage
-import timber.log.Timber
 
 @Singleton
 class UserInfoManager private constructor() {
@@ -43,7 +42,7 @@ class UserInfoManager private constructor() {
 		val result = preferences?.getValue(KEY_USER_INFO, null)
 
 		return if (result.isNullOrEmpty()) {
-			Timber.d(TAG, "userInfo is null or empty")
+			L.d(TAG, "userInfo is null or empty")
 			null
 		} else {
 			result.asUserInfo()
@@ -58,7 +57,7 @@ class UserInfoManager private constructor() {
 		return try {
 			Json.decodeFromString<UserInfo>(this)
 		} catch (e: Exception) {
-			Timber.e(TAG, e)
+			L.e(TAG, e)
 			null
 		}
 	}
@@ -67,7 +66,7 @@ class UserInfoManager private constructor() {
 		return try {
 			Json.encodeToString(this)
 		} catch (e: Exception) {
-			Timber.e(TAG, e)
+			L.e(TAG, e)
 			null
 		}
 	}

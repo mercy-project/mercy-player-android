@@ -14,8 +14,8 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import sideproject.mercy.BuildConfig
+import sideproject.mercy.shared.log.L
 import sideproject.mercy.utils.extensions.showToast
-import timber.log.Timber
 
 class LoginManager (private val activity: ComponentActivity) {
 
@@ -60,7 +60,7 @@ class LoginManager (private val activity: ComponentActivity) {
 		auth.signInWithCredential(credential)
 			.addOnCompleteListener { task ->
 				if (task.isSuccessful) {
-					Timber.i("firebase authentication successful.")
+					L.i("firebase authentication successful.")
 				}
 			}
 	}
@@ -77,7 +77,7 @@ class LoginManager (private val activity: ComponentActivity) {
 		} catch (e: ApiException) {
 			// The ApiException status code indicates the detailed failure reason.
 			// Please refer to the GoogleSignInStatusCodes class reference for more information.
-			Timber.w("signInResult:failed code=" + e.statusCode)
+			L.w("signInResult:failed code=" + e.statusCode)
 			saveUserInfo(null)
 		}
 	}
@@ -87,7 +87,7 @@ class LoginManager (private val activity: ComponentActivity) {
 			UserInfoManager.updateUserInfoByGoogleSignInAccount(this)
 		}
 
-		Timber.d("Account id: ${account?.id.orEmpty()}, email: ${account?.email}, idToken: ${account?.idToken}")
+		L.d("Account id: ${account?.id.orEmpty()}, email: ${account?.email}, idToken: ${account?.idToken}")
 	}
 
 	fun signIn() {

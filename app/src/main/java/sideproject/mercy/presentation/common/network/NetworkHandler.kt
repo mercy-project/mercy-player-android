@@ -13,7 +13,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import com.google.android.material.snackbar.Snackbar
 import sideproject.mercy.R
-import timber.log.Timber
+import sideproject.mercy.shared.log.L
 
 interface NetworkHandler {
 	fun setNetworkHandler(
@@ -84,12 +84,12 @@ class NetworkHandlerImpl : NetworkHandler, LifecycleEventObserver {
 		when (event) {
 			Event.ON_START -> {
 				registerNetworkCallback()
-				Timber.d("Event.ON_START")
+				L.d("Event.ON_START")
 			}
 
 			Event.ON_STOP -> {
 				unRegisterNetworkCallback()
-				Timber.d("Event.ON_STOP")
+				L.d("Event.ON_STOP")
 			}
 		}
 	}

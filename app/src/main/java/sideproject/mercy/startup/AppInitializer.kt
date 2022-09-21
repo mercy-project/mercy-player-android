@@ -2,12 +2,12 @@ package sideproject.mercy.startup
 
 import android.content.Context
 import androidx.startup.Initializer
-import sideproject.mercy.shared.log.L
+import sideproject.mercy.shared.authentication.manager.UserInfoManager
 
-class TimberInitializer : Initializer<Unit> {
+class AppInitializer : Initializer<Unit> {
 
 	override fun create(context: Context) {
-		L.init()
+		UserInfoManager.init(context)
 	}
 
 	override fun dependencies(): List<Class<out Initializer<*>>> = emptyList()

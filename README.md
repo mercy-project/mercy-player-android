@@ -255,6 +255,7 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 
 ### 해결해야할 문제
 - 구글 계정 로그인 클릭 후 계정 선택시 서비스 약관 링크가 걸려있는데 어디서 작성해야하는지 검토 필요
+    - 개인정보처리방침, 서비스 약관
 - 구글 idToken 만료 및 갱신 시점
 
 ### 참고

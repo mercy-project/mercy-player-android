@@ -42,6 +42,9 @@
             android:exported="false"
             tools:node="merge">
             <meta-data
+                android:name="sideproject.mercy.startup.AppInitializer"
+                android:value="androidx.startup" />
+            <meta-data
                 android:name="sideproject.mercy.startup.TimberInitializer"
                 android:value="androidx.startup" />
             <meta-data

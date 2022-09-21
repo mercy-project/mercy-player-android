@@ -4,7 +4,7 @@ import androidx.lifecycle.Lifecycle.Event
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import sideproject.mercy.shared.authentication.manager.UserInfoManager
-import timber.log.Timber
+import sideproject.mercy.shared.log.L
 
 class LoginChangeObserver(
     lifecycleOwner: LifecycleOwner,
@@ -24,7 +24,7 @@ class LoginChangeObserver(
 		when (event) {
 			Event.ON_RESUME -> {
 				if (isPaused && savedLogin != isLogin) {
-					Timber.d("changed login : $isLogin")
+					L.d("changed login : $isLogin")
 					callback.invoke(isLogin)
 				}
 				isPaused = false

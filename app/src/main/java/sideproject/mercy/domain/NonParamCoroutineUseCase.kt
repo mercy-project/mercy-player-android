@@ -4,18 +4,16 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import sideproject.mercy.domain.Result.Error
 import sideproject.mercy.domain.Result.Success
-import timber.log.Timber
+import sideproject.mercy.shared.log.L
 
 abstract class NonParamCoroutineUseCase<R>(private val coroutineDispatcher: CoroutineDispatcher) {
     suspend operator fun invoke(): Result<R> {
         return try {
             withContext(coroutineDispatcher) {
-                execute().let {
-                    Success(it)
-                }
+	            Success(execute())
             }
         } catch (e: Exception) {
-            Timber.e(e)
+            L.e(e)
             Error(e)
         }
     }
