@@ -104,6 +104,11 @@ object Depends {
 		// When using the BoM, you don't specify versions in Firebase library dependencies
 		const val firebaseCrashlyticsKtx = "com.google.firebase:firebase-crashlytics-ktx"
 		const val firebaseAnalyticsKtx = "com.google.firebase:firebase-analytics-ktx"
+		const val firebaseAuthKtx = "com.google.firebase:firebase-auth-ktx"
+
+		// Google Sign In SDK
+		private const val playServicesAuthVersion = "20.3.0"
+		const val playServicesAuth = "com.google.android.gms:play-services-auth:$playServicesAuthVersion"
 	}
 
     const val material = "com.google.android.material:material:1.3.0"

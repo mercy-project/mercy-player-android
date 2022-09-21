@@ -249,6 +249,73 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 
 ---
 
+## 구글 로그인 연동
+
+- 토큰만료시 작업
+
+### 해결해야할 문제
+- 구글 계정 로그인 클릭 후 계정 선택시 서비스 약관 링크가 걸려있는데 어디서 작성해야하는지 검토 필요
+- 구글 idToken 만료 및 갱신 시점
+
+### 참고
+- [구글 계정으로 로그인](https://developers.google.com/identity/sign-in/android/start)
+- [구글로그인 - 갱신 토큰 만료](https://developers.google.com/identity/protocols/oauth2#expiration)
+
+---
+
+## 유저 정보 및 로그인 연결
+
+### UserInfoManager
+> 유저 관련 정보를 관리
+
+- companion object 에 선언되어있는 메서드 활용
+
+```kotlin
+@JvmStatic
+fun isLoggedIn() = getInstance().info != null
+
+@JvmStatic
+fun getUserInfo() = getInstance().info
+
+@JvmStatic
+fun getIdToken() = getInstance().info?.idToken
+
+@JvmStatic
+fun getUserName() = getInstance().info?.userName
+
+@JvmStatic
+fun getEmail() = getInstance().info?.userEmail
+```
+
+- 로그인 여부, 상세 유저 정보를 가져올수 있습니다.
+
+
+### AuthenticationManager
+> 로그인, 로그아웃, 인증 관련 정보를 관리
+
+```kotlin
+fun signIn()
+fun signOut(updateAction: () -> Unit)
+fun revokeAccess(updateAction: () -> Unit)
+```
+
+- 위의 public fun 을 사용해서 로그인, 로그아웃 계정연결 해제
+
+
+### LoginChangeObserver
+> 화면에서 로그인 상태를 옵저빙하고 로그인 여부에 따라서 처리해야 할 작업을 처리
+
+```kotlin
+observeChangedLogin { isSignedIn ->
+    if (isSignedIn) {
+        moveToNext()
+    }
+}
+```
+- 사용 예시로 Activity, Fragment 에서 옵저버를 선언하고 로그인 상태가 변경되었을때 호출이 되며 이후 액션 추가
+
+---
+
 ## 참고
 - [혼자서 Android App 개발하기](https://woowabros.github.io/experience/2020/12/31/developing-an-android-app-in-one-person.html)
 - [Architecture Components](https://getstream.io/blog/android-developer-roadmap-part-3/#architecture-components)

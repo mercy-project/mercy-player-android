@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "386633259881-4qd1m0nlgks57804v8levt49hd56bg2q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sideproject.mercy",
+            "certificate_hash": "107de0be7c0bc2aa781e44002d5c6cd14a55048b"
+          }
+        },
+        {
           "client_id": "386633259881-43qu095a3qf4u5nlm45rto76bkue7p19.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -27,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "386633259881-43qu095a3qf4u5nlm45rto76bkue7p19.apps.googleusercontent.com",
+              "client_id": "386633259881-27jbruum22f3bnb7dv7j2es45ihop5hu.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

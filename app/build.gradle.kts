@@ -34,6 +34,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "KAKAO_REST_API_AUTHORIZATION", "\"KakaoAK sometoken\"")
+	    buildConfigField("String", "GOOGLE_WEB_CLIENT_ID", "\"386633259881-43qu095a3qf4u5nlm45rto76bkue7p19.apps.googleusercontent.com\"")
     }
 
     buildTypes {
@@ -156,6 +157,8 @@ dependencies {
 	implementation(platform(Depends.Firebase.firebaseBom))
 	implementation(Depends.Firebase.firebaseCrashlyticsKtx)
 	implementation(Depends.Firebase.firebaseAnalyticsKtx)
+	implementation(Depends.Firebase.firebaseAuthKtx)
+	implementation(Depends.Firebase.playServicesAuth)
 
     ktlint(Depends.Lint.ktlint)
     detektPlugins(Depends.Lint.detektFormatting)
