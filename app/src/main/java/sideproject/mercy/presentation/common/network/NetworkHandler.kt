@@ -1,4 +1,4 @@
-package sideproject.mercy.presentation.base.viewmodel
+package sideproject.mercy.presentation.common.network
 
 import android.content.Context
 import android.net.ConnectivityManager
