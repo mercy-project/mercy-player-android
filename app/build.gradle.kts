@@ -153,6 +153,8 @@ dependencies {
     implementation(Depends.Glide.glide)
     kapt(Depends.Glide.compiler)
 
+	implementation(Depends.dotsIndicator)
+
 	// Firebase
 	implementation(platform(Depends.Firebase.firebaseBom))
 	implementation(Depends.Firebase.firebaseCrashlyticsKtx)

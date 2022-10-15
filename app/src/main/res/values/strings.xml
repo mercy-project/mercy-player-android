@@ -54,4 +54,11 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
+    <string name="on_boarding_title1">나의 생활 루틴에 맞춰\n동영상을 시청할수 있도록 1</string>
+    <string name="on_boarding_title2">나의 생활 루틴에 맞춰\n동영상을 시청할수 있도록 2</string>
+    <string name="on_boarding_title3">나의 생활 루틴에 맞춰\n동영상을 시청할수 있도록 3</string>
+    <string name="on_boarding_subtitle1">동영상 시청습관을 커스텀1</string>
+    <string name="on_boarding_subtitle2">동영상 시청습관을 커스텀2</string>
+    <string name="on_boarding_subtitle3">동영상 시청습관을 커스텀3</string>
+
 </resources>
