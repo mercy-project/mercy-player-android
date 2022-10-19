@@ -85,10 +85,11 @@
             android:text="@string/terms_of_service"
             android:textColor="@color/color_00c880"
             android:textSize="12sp"
-            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintBottom_toBottomOf="@id/tv_privacy_policy"
             app:layout_constraintEnd_toStartOf="@id/tv_privacy_policy"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:onDebouncedClick="@{viewModel::onClickTermsOfService}" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_privacy_policy"
@@ -102,7 +103,8 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@id/tv_copyright"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_terms_of_service" />
+            app:layout_constraintStart_toEndOf="@id/tv_terms_of_service"
+            app:onDebouncedClick="@{viewModel::onClickPrivacyPolicy}"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_copyright"

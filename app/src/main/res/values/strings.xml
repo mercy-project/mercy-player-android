@@ -61,4 +61,7 @@
     <string name="on_boarding_subtitle2">동영상 시청습관을 커스텀2</string>
     <string name="on_boarding_subtitle3">동영상 시청습관을 커스텀3</string>
 
+    <string name="terms_of_service_url">https://www.evernote.com/shard/s93/sh/3c7dc2e5-7739-28f3-ffe9-95ea9ca763ee/339fb1bd27d46cbbbac1d3aafb533039</string>
+    <string name="privacy_policy_url">https://www.evernote.com/shard/s93/sh/3c7dc2e5-7739-28f3-ffe9-95ea9ca763ee/339fb1bd27d46cbbbac1d3aafb533039</string>
+
 </resources>

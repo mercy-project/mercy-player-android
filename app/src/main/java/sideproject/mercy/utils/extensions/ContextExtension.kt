@@ -89,6 +89,11 @@ inline fun <reified T: Activity> Context.startActivity(
     startActivity(buildIntent<T>(*argument))
 }
 
+fun Activity.openExternalLink(url: String) {
+	val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+	startActivity(intent)
+}
+
 fun Int.dp2px() = (this * Resources.getSystem().displayMetrics.density).toInt()
 
 fun Context.showToast(message: String) { 

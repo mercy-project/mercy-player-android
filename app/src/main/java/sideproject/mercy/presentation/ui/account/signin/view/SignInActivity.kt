@@ -1,6 +1,8 @@
 package sideproject.mercy.presentation.ui.account.signin.view
 
 import android.content.Intent
+import android.graphics.Paint
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +19,7 @@ import sideproject.mercy.shared.authentication.manager.LoginManager
 import sideproject.mercy.shared.authentication.manager.UserInfoManager
 import sideproject.mercy.shared.authentication.observeChangedLogin
 import sideproject.mercy.utils.extensions.observeHandledEvent
+import sideproject.mercy.utils.extensions.openExternalLink
 import sideproject.mercy.utils.extensions.showToast
 
 @AndroidEntryPoint
@@ -39,7 +42,17 @@ class SignInActivity : AppCompatActivity() {
 
 		setContentView(binding.root)
 
+		initView()
 		observeEventNotifier()
+	}
+
+	private fun initView() {
+		setUnderlineForTerms()
+	}
+
+	private fun setUnderlineForTerms() {
+		binding.tvTermsOfService.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+		binding.tvPrivacyPolicy.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 	}
 
 	private fun observeEventNotifier() {
@@ -74,12 +87,24 @@ class SignInActivity : AppCompatActivity() {
 
 				loginManager.signIn()
 			}
+
+			is SignInActionEntity.TermsOfService -> {
+				moveToExternalLink(getString(R.string.terms_of_service_url))
+			}
+
+			is SignInActionEntity.PrivacyPolicy -> {
+				moveToExternalLink(getString(R.string.privacy_policy_url))
+			}
 		}
 	}
 
 	private fun handleSelectEvent(entity: ClickEntity) {
 		when (entity) {
 		}
+	}
+
+	private fun moveToExternalLink(url: String) {
+		openExternalLink(url)
 	}
 
 	private fun moveToNext() {

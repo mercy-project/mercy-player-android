@@ -9,6 +9,14 @@ import sideproject.mercy.presentation.ui.account.signin.model.SignInActionEntity
 class SignInViewModel @Inject constructor(
 ): BaseViewModel() {
 
+	fun onClickTermsOfService() {
+		notifyActionEvent(SignInActionEntity.TermsOfService)
+	}
+
+	fun onClickPrivacyPolicy() {
+		notifyActionEvent(SignInActionEntity.PrivacyPolicy)
+	}
+
 	fun onClickSignInGoogle() {
 		notifyActionEvent(SignInActionEntity.SignInGoogle)
 	}
