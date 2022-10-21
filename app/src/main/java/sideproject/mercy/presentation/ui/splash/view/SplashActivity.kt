@@ -37,14 +37,14 @@ class SplashActivity : AppCompatActivity() {
 
 	private fun moveToNextActivity() {
 
-		val isFirstLaunch = viewModel.isFirstLaunch()
-
-		if (isFirstLaunch) {
+		// val isFirstLaunch = viewModel.isFirstLaunch()
+		//
+		// if (isFirstLaunch) {
 			val intent = Intent(this, OnBoardingActivity::class.java)
 			startActivity(intent)
 			finish()
 			return
-		}
+		// }
 
 		// Todo: 로그인 사용자인지 체크 후 시작 화면 분기
 		// val intent = Intent(this, MainActivity::class.java).apply {

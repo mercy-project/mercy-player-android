@@ -116,6 +116,10 @@ object Depends {
     const val timber = "com.jakewharton.timber:timber:5.0.1"
     const val inject = "javax.inject:javax.inject:1"
 
+	private const val dotsIndicatorVersion = "4.3"
+	const val dotsIndicator = "com.tbuonomo:dotsindicator:$dotsIndicatorVersion"
+
+
     object Lint {
         const val ktlint = "com.pinterest:ktlint:0.47.0"
         const val detektFormatting = "io.gitlab.arturbosch.detekt:detekt-formatting:1.21.0"
