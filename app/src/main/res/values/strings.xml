@@ -9,10 +9,14 @@
     <string name="confirm">확인</string>
     <string name="cancel">취소</string>
     <string name="next">다음</string>
+    <string name="ignore">무시</string>
     <string name="do_setting">설정하기</string>
     <string name="do_start">시작하기</string>
 
     <string name="app_finish">뒤로 버튼을 한번 더 누르시면 앱이 종료됩니다.</string>
+
+    <string name="ssl_error_description">SSL 인증서 확인중 오류가 발생되었습니다.</string>
+    <string name="invalid_url">유효한 URL이 아닙니다.\n다시 시도해주세요.</string>
 
     <string name="error_default">인터넷 연결을 확인해주세요.</string>
     <string name="hint_search">책 이름을 입력하세요</string>
@@ -61,7 +65,7 @@
     <string name="on_boarding_subtitle2">동영상 시청습관을 커스텀2</string>
     <string name="on_boarding_subtitle3">동영상 시청습관을 커스텀3</string>
 
-    <string name="terms_of_service_url">https://www.evernote.com/shard/s93/sh/3c7dc2e5-7739-28f3-ffe9-95ea9ca763ee/339fb1bd27d46cbbbac1d3aafb533039</string>
-    <string name="privacy_policy_url">https://www.evernote.com/shard/s93/sh/3c7dc2e5-7739-28f3-ffe9-95ea9ca763ee/339fb1bd27d46cbbbac1d3aafb533039</string>
+    <string name="terms_of_service_url">https://www.notion.so/2d278bd6edd249be80061077bac2b5b7</string>
+    <string name="privacy_policy_url">https://www.notion.so/f4a225f27c164419bc6c64b1afd20730</string>
 
 </resources>

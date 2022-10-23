@@ -2,7 +2,6 @@ package sideproject.mercy.presentation.ui.account.signin.view
 
 import android.content.Intent
 import android.graphics.Paint
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -15,11 +14,11 @@ import sideproject.mercy.domain.entity.ClickEntity
 import sideproject.mercy.presentation.ui.account.signin.model.SignInActionEntity
 import sideproject.mercy.presentation.ui.account.signin.viewmodel.SignInViewModel
 import sideproject.mercy.presentation.ui.interests.main.view.InterestsMainActivity
+import sideproject.mercy.presentation.ui.webview.view.WebViewActivity
 import sideproject.mercy.shared.authentication.manager.LoginManager
 import sideproject.mercy.shared.authentication.manager.UserInfoManager
 import sideproject.mercy.shared.authentication.observeChangedLogin
 import sideproject.mercy.utils.extensions.observeHandledEvent
-import sideproject.mercy.utils.extensions.openExternalLink
 import sideproject.mercy.utils.extensions.showToast
 
 @AndroidEntryPoint
@@ -89,11 +88,18 @@ class SignInActivity : AppCompatActivity() {
 			}
 
 			is SignInActionEntity.TermsOfService -> {
-				moveToExternalLink(getString(R.string.terms_of_service_url))
+				moveToWebView(
+					title = getString(R.string.terms_of_service),
+					url = getString(R.string.terms_of_service_url)
+
+				)
 			}
 
 			is SignInActionEntity.PrivacyPolicy -> {
-				moveToExternalLink(getString(R.string.privacy_policy_url))
+				moveToWebView(
+					title = getString(R.string.privacy_policy),
+					url = getString(R.string.privacy_policy_url)
+				)
 			}
 		}
 	}
@@ -103,8 +109,12 @@ class SignInActivity : AppCompatActivity() {
 		}
 	}
 
-	private fun moveToExternalLink(url: String) {
-		openExternalLink(url)
+	private fun moveToWebView(title: String, url: String) {
+		WebViewActivity.startActivity(
+			context = this,
+			title = title,
+			url = url
+		)
 	}
 
 	private fun moveToNext() {

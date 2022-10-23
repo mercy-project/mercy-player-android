@@ -12,6 +12,7 @@ import sideproject.mercy.R
 import sideproject.mercy.databinding.ActivityOnBoardingBinding
 import sideproject.mercy.domain.entity.ActionEntity
 import sideproject.mercy.domain.entity.ClickEntity
+import sideproject.mercy.presentation.ui.account.signin.view.SignInActivity
 import sideproject.mercy.presentation.ui.main.view.MainActivity
 import sideproject.mercy.presentation.ui.onboarding.model.OnBoardingActionEntity
 import sideproject.mercy.presentation.ui.onboarding.model.OnBoardingItemClickEntity
@@ -99,7 +100,7 @@ class OnBoardingActivity : AppCompatActivity() {
 		// Todo - On.1.0.0.0: 최초 진입 플래그 저장 기준에 따라 변경 가능성 있음
 		viewModel.saveFirstLaunched()
 
-		val intent = Intent(this, MainActivity::class.java).apply {
+		val intent = Intent(this, SignInActivity::class.java).apply {
 			flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
 		}
 

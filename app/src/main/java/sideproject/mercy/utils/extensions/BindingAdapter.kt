@@ -48,4 +48,14 @@ object BindingAdapter {
             }
         }
     }
+
+	@JvmStatic
+	@BindingAdapter(value = ["onBackPressed"])
+	fun bindOnBackPress(view: Toolbar, onBackPressed: Boolean) {
+		if (onBackPressed) {
+			view.setNavigationOnClickListener {
+				(it.context as? Activity)?.onBackPressed()
+			}
+		}
+	}
 }
