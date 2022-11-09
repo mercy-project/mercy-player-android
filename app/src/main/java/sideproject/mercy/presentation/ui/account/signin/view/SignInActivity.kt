@@ -11,6 +11,7 @@ import sideproject.mercy.R
 import sideproject.mercy.databinding.ActivitySignInBinding
 import sideproject.mercy.domain.entity.ActionEntity
 import sideproject.mercy.domain.entity.ClickEntity
+import sideproject.mercy.presentation.common.AppConfig
 import sideproject.mercy.presentation.ui.account.signin.model.SignInActionEntity
 import sideproject.mercy.presentation.ui.account.signin.viewmodel.SignInViewModel
 import sideproject.mercy.presentation.ui.interests.main.view.InterestsMainActivity
@@ -90,7 +91,7 @@ class SignInActivity : AppCompatActivity() {
 			is SignInActionEntity.TermsOfService -> {
 				moveToWebView(
 					title = getString(R.string.terms_of_service),
-					url = getString(R.string.terms_of_service_url)
+					url = AppConfig.URL.TERMS_OF_SERVICE_URL
 
 				)
 			}
@@ -98,7 +99,7 @@ class SignInActivity : AppCompatActivity() {
 			is SignInActionEntity.PrivacyPolicy -> {
 				moveToWebView(
 					title = getString(R.string.privacy_policy),
-					url = getString(R.string.privacy_policy_url)
+					url = AppConfig.URL.PRIVACY_POLICY_URL
 				)
 			}
 		}

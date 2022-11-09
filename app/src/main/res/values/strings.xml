@@ -65,7 +65,4 @@
     <string name="on_boarding_subtitle2">동영상 시청습관을 커스텀2</string>
     <string name="on_boarding_subtitle3">동영상 시청습관을 커스텀3</string>
 
-    <string name="terms_of_service_url">https://www.notion.so/2d278bd6edd249be80061077bac2b5b7</string>
-    <string name="privacy_policy_url">https://www.notion.so/f4a225f27c164419bc6c64b1afd20730</string>
-
 </resources>
