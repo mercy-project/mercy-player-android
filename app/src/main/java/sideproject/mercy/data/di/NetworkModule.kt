@@ -1,8 +1,6 @@
 package sideproject.mercy.data.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import sideproject.mercy.data.api.GithubApi
-import sideproject.mercy.data.api.KakaoApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,13 +14,16 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
+import sideproject.mercy.data.api.GithubApi
+import sideproject.mercy.data.api.KakaoApi
+import sideproject.mercy.data.api.MercyApi
 
 @InstallIn(SingletonComponent::class)
 @Module
 object NetworkModule {
 
     @Provides
-    @Named("defaultHeaders")
+    @Named("kakaoHeaders")
     fun provideHeaders(): Interceptor = Interceptor {
         it.run {
             proceed(
@@ -34,7 +35,8 @@ object NetworkModule {
     }
 
     @Provides
-    fun provideOkHttpClient(@Named("defaultHeaders") headers: Interceptor): OkHttpClient =
+    @Named("kakaoHttpClient")
+    fun provideKakaoOkHttpClient(@Named("kakaoHeaders") headers: Interceptor): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(headers)
             .addInterceptor(
@@ -43,6 +45,16 @@ object NetworkModule {
                 }
             )
             .build()
+
+	@Provides
+	fun provideOkHttpClient(): OkHttpClient =
+		OkHttpClient.Builder()
+			.addInterceptor(
+				HttpLoggingInterceptor().apply {
+					level = HttpLoggingInterceptor.Level.BODY
+				}
+			)
+			.build()
 
 	private val jsonBuilder = Json {
 		ignoreUnknownKeys = true
@@ -69,7 +81,7 @@ object NetworkModule {
 
     @Provides
     fun provideKakaoApi(
-        okHttpClient: OkHttpClient,
+	    @Named("kakaoHttpClient") okHttpClient: OkHttpClient,
         converterFactory: Converter.Factory
     ): KakaoApi {
         return Retrofit.Builder()
@@ -79,4 +91,17 @@ object NetworkModule {
             .build()
             .create(KakaoApi::class.java)
     }
+
+	@Provides
+	fun provideMercyApi(
+		okHttpClient: OkHttpClient,
+		converterFactory: Converter.Factory
+	): MercyApi {
+		return Retrofit.Builder()
+			.baseUrl("http://api.mercymercy.ml")
+			.addConverterFactory(converterFactory)
+			.client(okHttpClient)
+			.build()
+			.create(MercyApi::class.java)
+	}
 }

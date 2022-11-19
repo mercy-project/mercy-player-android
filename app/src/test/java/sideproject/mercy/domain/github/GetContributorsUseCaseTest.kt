@@ -2,7 +2,7 @@ package sideproject.mercy.domain.github
 
 import sideproject.mercy.MainCoroutineRule
 import sideproject.mercy.data.repository.GithubRepository
-import sideproject.mercy.domain.github.GetContributorsUseCase.Param
+import sideproject.mercy.domain.usecase.github.GetContributorsUseCase.Param
 import sideproject.mercy.shared.model.User
 import sideproject.mercy.domain.Result
 import kotlinx.coroutines.runBlocking
@@ -12,6 +12,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
+import sideproject.mercy.domain.usecase.github.GetContributorsUseCase
 
 class GetContributorsUseCaseTest {
 

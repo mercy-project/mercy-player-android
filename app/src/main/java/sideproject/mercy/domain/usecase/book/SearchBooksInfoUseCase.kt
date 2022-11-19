@@ -1,8 +1,8 @@
-package sideproject.mercy.domain.book
+package sideproject.mercy.domain.usecase.book
 
 import sideproject.mercy.data.repository.SearchRepository
 import sideproject.mercy.domain.UseCase
-import sideproject.mercy.domain.book.SearchBooksInfoUseCase.Params
+import sideproject.mercy.domain.usecase.book.SearchBooksInfoUseCase.Params
 import sideproject.mercy.domain.model.SearchBooksData
 import sideproject.mercy.presentation.ClickEventNotifier
 import sideproject.mercy.shared.IoDispatcher

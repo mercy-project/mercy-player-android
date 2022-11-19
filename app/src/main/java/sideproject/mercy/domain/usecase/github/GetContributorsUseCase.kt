@@ -1,4 +1,4 @@
-package sideproject.mercy.domain.github
+package sideproject.mercy.domain.usecase.github
 
 import sideproject.mercy.data.repository.GithubRepository
 import sideproject.mercy.domain.UseCase
@@ -6,7 +6,7 @@ import sideproject.mercy.shared.IoDispatcher
 import sideproject.mercy.shared.model.User
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
-import sideproject.mercy.domain.github.GetContributorsUseCase.Param
+import sideproject.mercy.domain.usecase.github.GetContributorsUseCase.Param
 
 class GetContributorsUseCase @Inject constructor(
     private val githubRepository: GithubRepository,
