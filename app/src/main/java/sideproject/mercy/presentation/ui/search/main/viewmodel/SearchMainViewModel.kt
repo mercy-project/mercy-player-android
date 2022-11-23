@@ -3,8 +3,8 @@ package sideproject.mercy.presentation.ui.search.main.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import sideproject.mercy.domain.book.SearchBooksInfoUseCase
-import sideproject.mercy.domain.book.SearchBooksInfoUseCase.Params
+import sideproject.mercy.domain.usecase.book.SearchBooksInfoUseCase
+import sideproject.mercy.domain.usecase.book.SearchBooksInfoUseCase.Params
 import sideproject.mercy.domain.model.BookInfoItemViewModel
 import sideproject.mercy.domain.model.PagingMeta
 import sideproject.mercy.presentation.base.viewmodel.BaseViewModel

@@ -1,7 +1,7 @@
 package sideproject.mercy.data.repository
 
 import sideproject.mercy.data.api.KakaoApi
-import sideproject.mercy.domain.book.SearchBooksInfoUseCase.Params
+import sideproject.mercy.domain.usecase.book.SearchBooksInfoUseCase.Params
 import sideproject.mercy.domain.model.SearchBooksData
 import sideproject.mercy.presentation.ui.search.main.viewmodel.SearchViewModelMapper
 import javax.inject.Inject
