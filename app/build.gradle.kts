@@ -49,8 +49,13 @@ android {
     }
 
     buildFeatures {
+	    compose = true
         dataBinding = true
     }
+
+	composeOptions {
+		kotlinCompilerExtensionVersion = "1.3.2"
+	}
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -160,12 +165,13 @@ dependencies {
 	implementation(Depends.Firebase.firebaseAuthKtx)
 	implementation(Depends.Firebase.playServicesAuth)
 
-	// // Compose
-	// implementation(Depends.AndroidX.Compose.layout)
-	// implementation(Depends.AndroidX.Compose.material)
-	// implementation(Depends.AndroidX.Compose.tooling)
-	// implementation(Depends.AndroidX.Compose.runtime)
-	// implementation(Depends.AndroidX.Compose.runtimeLivedata)
+	// Compose
+	implementation(platform(Depends.AndroidX.Compose.composeBom))
+	implementation(Depends.AndroidX.Compose.foundation)
+	implementation(Depends.AndroidX.Compose.material)
+	implementation(Depends.AndroidX.Compose.uiTooling)
+	implementation(Depends.AndroidX.Compose.runtime)
+	implementation(Depends.AndroidX.Compose.runtimeLivedata)
 
     ktlint(Depends.Lint.ktlint)
     detektPlugins(Depends.Lint.detektFormatting)
