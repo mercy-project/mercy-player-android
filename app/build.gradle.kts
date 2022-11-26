@@ -1,10 +1,8 @@
-import groovy.lang.ExpandoMetaClassCreationHandle.disable
-
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("android.extensions")
     kotlin("kapt")
+	id("kotlin-parcelize")
     id("kotlinx-serialization")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
@@ -161,6 +159,13 @@ dependencies {
 	implementation(Depends.Firebase.firebaseAnalyticsKtx)
 	implementation(Depends.Firebase.firebaseAuthKtx)
 	implementation(Depends.Firebase.playServicesAuth)
+
+	// // Compose
+	// implementation(Depends.AndroidX.Compose.layout)
+	// implementation(Depends.AndroidX.Compose.material)
+	// implementation(Depends.AndroidX.Compose.tooling)
+	// implementation(Depends.AndroidX.Compose.runtime)
+	// implementation(Depends.AndroidX.Compose.runtimeLivedata)
 
     ktlint(Depends.Lint.ktlint)
     detektPlugins(Depends.Lint.detektFormatting)

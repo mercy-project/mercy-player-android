@@ -9,7 +9,7 @@ object Versions {
 }
 
 object Depends {
-    const val androidGradlePlugin = "com.android.tools.build:gradle:7.1.3"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:7.3.1"
 
     object AndroidX {
         const val core = "androidx.core:core-ktx:1.6.0"
@@ -44,10 +44,24 @@ object Depends {
             const val ui = "androidx.navigation:navigation-ui-ktx:$navigationVersion"
             const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
         }
+
+	    object Compose {
+			const val version = "1.0.0"
+
+		    const val foundation = "androidx.compose.foundation:foundation:$version"
+		    const val layout = "androidx.compose.foundation:foundation-layout:$version"
+		    const val material = "androidx.compose.material:material:$version"
+		    const val materialIconsExtended = "androidx.compose.material:material-icons-extended:$version"
+		    const val runtime = "androidx.compose.runtime:runtime:$version"
+		    const val runtimeLivedata = "androidx.compose.runtime:runtime-livedata:$version"
+		    const val tooling = "androidx.ui:ui-tooling:$version"
+		    const val test = "androidx.compose.test:test-core:$version"
+		    const val uiTest = "androidx.ui:ui-test:$version"
+		}
     }
 
     object Kotlin {
-        private const val kotlinVersion = "1.6.21"
+        private const val kotlinVersion = "1.7.21"
         const val coroutineVersion = "1.6.4"
 
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"

@@ -67,6 +67,7 @@ class SearchMainViewModel @Inject constructor(
                     initSearchInfo()
                     hideLoading()
                 }
+	            else -> {}
             }
         }
     }
