@@ -1,8 +1,7 @@
 package sideproject.mercy.presentation.ui.survey
 
 data class SurveyResult(
-	val result: String,
-	val answers: List<Answer<*>>
+	val result: String
 )
 
 data class Survey(

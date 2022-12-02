@@ -45,10 +45,9 @@ object SurveyRepository {
 
 	suspend fun getSurvey() = mercySurvey
 
-	fun getSurveyResult(answers: List<Answer<*>>): SurveyResult {
+	fun sendSurveyResult(answers: List<Answer<*>>): SurveyResult {
 		return SurveyResult(
-			result = "Success",
-			answers = answers
+			result = "Success"
 		)
 	}
 }

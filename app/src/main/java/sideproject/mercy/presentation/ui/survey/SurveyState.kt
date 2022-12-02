@@ -1,6 +1,5 @@
 package sideproject.mercy.presentation.ui.survey
 
-import androidx.annotation.StringRes
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -18,14 +17,14 @@ class QuestionState(
 
 sealed class SurveyState {
 	data class Questions(
-		@StringRes val surveyTitle: Int,
+		val surveyTitle: String,
 		val questionsState: List<QuestionState>
 	) : SurveyState() {
 		var currentQuestionIndex by mutableStateOf(0)
 	}
 
 	data class Result(
-		@StringRes val surveyTitle: Int,
+		val surveyTitle: String,
 		val surveyResult: SurveyResult
 	) : SurveyState()
 }
