@@ -1,6 +1,5 @@
 package sideproject.mercy.presentation.ui.survey
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
-import androidx.compose.material.Colors
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -25,8 +23,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester.Companion.createRefs
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -34,6 +30,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import sideproject.mercy.R
+import sideproject.mercy.presentation.common.theme.progressIndicatorBackground
 
 @Composable
 fun SurveyQuestionsScreen(
@@ -55,9 +52,17 @@ fun SurveyQuestionsScreen(
 				)
 			},
 			content = { innerPadding ->
-				Box(modifier = Modifier
-					.fillMaxSize()
-					.padding(innerPadding))
+				Question(
+					question = questionState.question,
+					answer = questionState.answer,
+					onAnswer = {
+						questionState.answer = it
+						questionState.enableNext = true
+					},
+					modifier = Modifier
+						.fillMaxSize()
+						.padding(innerPadding)
+				)
 			},
 			bottomBar = {
 				SurveyBottomBar(
@@ -135,7 +140,7 @@ private fun SurveyTopAppBar(
 				.constrainAs(progress) {
 					bottom.linkTo(text.bottom)
 				},
-			backgroundColor = MaterialTheme.colors.background
+			backgroundColor = MaterialTheme.colors.progressIndicatorBackground()
 		)
 	}
 }

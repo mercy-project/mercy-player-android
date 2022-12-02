@@ -33,7 +33,7 @@ sealed class Answer<T : PossibleAnswer> {
 	) : Answer<PossibleAnswer.SingleChoice>()
 
 	data class MultipleChoice(
-		val answersStringRes: Set<Int>
+		val answersPositions: Set<Int>
 	) : Answer<PossibleAnswer.MultipleChoice>()
 }
 
@@ -44,7 +44,7 @@ fun Answer.MultipleChoice.withAnswerSelected(
 	answer: Int,
 	selected: Boolean
 ): Answer.MultipleChoice {
-	val newStringRes = answersStringRes.toMutableSet()
+	val newStringRes = answersPositions.toMutableSet()
 	if (selected) {
 		newStringRes.add(answer)
 	} else {
