@@ -65,4 +65,10 @@
     <string name="on_boarding_subtitle2">동영상 시청습관을 커스텀2</string>
     <string name="on_boarding_subtitle3">동영상 시청습관을 커스텀3</string>
 
+    <string name="question_count">\u00A0of %d</string>
+
+    <string name="next">NEXT</string>
+    <string name="previous">PREVIOUS</string>
+    <string name="done">DONE</string>
+
 </resources>

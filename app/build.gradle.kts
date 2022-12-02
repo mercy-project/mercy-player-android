@@ -172,6 +172,7 @@ dependencies {
 	implementation(Depends.AndroidX.Compose.uiTooling)
 	implementation(Depends.AndroidX.Compose.runtime)
 	implementation(Depends.AndroidX.Compose.runtimeLivedata)
+	implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     ktlint(Depends.Lint.ktlint)
     detektPlugins(Depends.Lint.detektFormatting)

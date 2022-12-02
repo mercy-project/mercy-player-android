@@ -46,7 +46,7 @@ object Depends {
         }
 
 	    object Compose {
-		    const val composeBom = "androidx.compose:compose-bom:2022.10.00"
+		    const val composeBom = "androidx.compose:compose-bom:2022.11.00"
 
 		    // Choose one of the following:
 		    // Material Design 3
