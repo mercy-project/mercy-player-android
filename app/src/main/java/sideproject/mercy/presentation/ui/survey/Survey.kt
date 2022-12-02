@@ -2,6 +2,7 @@ package sideproject.mercy.presentation.ui.survey
 
 data class SurveyResult(
 	val result: String,
+	val answers: List<Answer<*>>
 )
 
 data class Survey(
@@ -13,15 +14,15 @@ data class Question(
 	val id: Int,
 	val questionText: String,
 	val answer: PossibleAnswer,
-	val description: Int? = null
+	val description: String? = null
 )
 
 /**
  * 답변 가능한 Type
  */
 sealed class PossibleAnswer {
-	data class SingleChoice(val optionsStringRes: List<Int>) : PossibleAnswer()
-	data class MultipleChoice(val optionsStringRes: List<Int>) : PossibleAnswer()
+	data class SingleChoice(val optionsStrings: List<String>) : PossibleAnswer()
+	data class MultipleChoice(val optionsStrings: List<String>) : PossibleAnswer()
 }
 
 /**
