@@ -41,7 +41,7 @@ class SurveyViewModel(
 	}
 }
 
-class SurveyViewModelFactory(): ViewModelProvider.Factory {
+class SurveyViewModelFactory : ViewModelProvider.Factory {
 	@Suppress("UNCHECKED_CAST")
 	override fun <T : ViewModel> create(modelClass: Class<T>): T {
 		if (modelClass.isAssignableFrom(SurveyViewModel::class.java)) {

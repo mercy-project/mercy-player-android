@@ -167,6 +167,7 @@ dependencies {
 
 	// Compose
 	implementation(platform(Depends.AndroidX.Compose.composeBom))
+	implementation(Depends.AndroidX.Compose.activityCompose)
 	implementation(Depends.AndroidX.Compose.foundation)
 	implementation(Depends.AndroidX.Compose.material)
 	implementation(Depends.AndroidX.Compose.uiTooling)

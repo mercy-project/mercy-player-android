@@ -20,20 +20,25 @@ data class Question(
  * 답변 가능한 Type
  */
 sealed class PossibleAnswer {
-	data class SingleChoice(val optionsStrings: List<String>) : PossibleAnswer()
-	data class MultipleChoice(val optionsStrings: List<String>) : PossibleAnswer()
+	data class SingleChoice(val optionAnswers: List<OptionAnswer>) : PossibleAnswer()
+	data class MultipleChoice(val optionsAnswers: List<OptionAnswer>) : PossibleAnswer()
 }
+
+data class OptionAnswer(
+	val answerId: Int,
+	val answer: String
+)
 
 /**
  * 실제 답변을 저장
  */
 sealed class Answer<T : PossibleAnswer> {
 	data class SingleChoice(
-		val answer: Int
+		val answerId: Int
 	) : Answer<PossibleAnswer.SingleChoice>()
 
 	data class MultipleChoice(
-		val answersPositions: Set<Int>
+		val answersIds: Set<Int>
 	) : Answer<PossibleAnswer.MultipleChoice>()
 }
 
@@ -41,14 +46,14 @@ sealed class Answer<T : PossibleAnswer> {
  * 답변이 선택되었는지 또는 선택 해제되었는지에 따라 선택한 답변 목록에서 답변을 추가하거나 제거합니다.
  */
 fun Answer.MultipleChoice.withAnswerSelected(
-	answer: Int,
+	answerId: Int,
 	selected: Boolean
 ): Answer.MultipleChoice {
-	val newStringRes = answersPositions.toMutableSet()
+	val answerIds = answersIds.toMutableSet()
 	if (selected) {
-		newStringRes.add(answer)
+		answerIds.add(answerId)
 	} else {
-		newStringRes.remove(answer)
+		answerIds.remove(answerId)
 	}
-	return Answer.MultipleChoice(newStringRes)
+	return Answer.MultipleChoice(answerIds)
 }

@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import sideproject.mercy.R
 import sideproject.mercy.presentation.common.theme.progressIndicatorBackground
+import sideproject.mercy.utils.extensions.orFalse
 
 @Composable
 fun SurveyQuestionsScreen(
@@ -57,7 +58,7 @@ fun SurveyQuestionsScreen(
 					answer = questionState.answer,
 					onAnswer = {
 						questionState.answer = it
-						questionState.enableNext = true
+						questionState.enableNext = (it as? Answer.MultipleChoice)?.answersIds?.isNotEmpty().orFalse()
 					},
 					modifier = Modifier
 						.fillMaxSize()

@@ -89,11 +89,11 @@ fun Question(
 			is PossibleAnswer.MultipleChoice -> MultipleChoiceQuestion(
 				possibleAnswer = question.answer,
 				answer = answer as Answer.MultipleChoice?,
-				onAnswerSelected = { newAnswer, selected ->
+				onAnswerSelected = { answerId, selected ->
 					if (answer == null) {
-						onAnswer(Answer.MultipleChoice(setOf(newAnswer)))
+						onAnswer(Answer.MultipleChoice(setOf(answerId)))
 					} else {
-						onAnswer(answer.withAnswerSelected(newAnswer, selected))
+						onAnswer(answer.withAnswerSelected(answerId, selected))
 					}
 				},
 				modifier = Modifier.fillMaxWidth()
@@ -114,14 +114,10 @@ private fun MultipleChoiceQuestion(
 	onAnswerSelected: (Int, Boolean) -> Unit,
 	modifier: Modifier = Modifier
 ) {
-	val options = possibleAnswer.optionsStrings.mapIndexed { index, option ->
-		index to option
-	}.toMap()
-
 	Column(modifier = modifier) {
-		for (option in options) {
+		for (optionAnswer in possibleAnswer.optionsAnswers) {
 			var checkedState by remember {
-				val selectedOption = answer?.answersPositions?.contains(option.key)
+				val selectedOption = answer?.answersIds?.contains(optionAnswer.answerId)
 				mutableStateOf(selectedOption ?: false)
 			}
 
@@ -139,20 +135,20 @@ private fun MultipleChoiceQuestion(
 						.clickable(
 							onClick = {
 								checkedState = !checkedState
-								onAnswerSelected(option.key, checkedState)
+								onAnswerSelected(optionAnswer.answerId, checkedState)
 							}
 						)
 						.padding(vertical = 16.dp, horizontal = 24.dp),
 					verticalAlignment = Alignment.CenterVertically,
 					horizontalArrangement = Arrangement.SpaceBetween
 				) {
-					Text(text = option.value)
+					Text(text = optionAnswer.answer)
 
 					Checkbox(
 						checked = checkedState,
 						onCheckedChange = { selected ->
 							checkedState = selected
-							onAnswerSelected(option.key, selected)
+							onAnswerSelected(optionAnswer.answerId, selected)
 						},
 						colors = CheckboxDefaults.colors(checkedColor = MaterialTheme.colors.primary)
 					)
@@ -169,17 +165,17 @@ fun QuestionPreview() {
 		id = 2,
 		questionText = "평상시에 동영상은\n언제 시청하시나요?",
 		answer = PossibleAnswer.MultipleChoice(
-			optionsStrings = listOf(
-				"아침시간 (오전 6시 - 오전 11시)",
-				"점심시간 (오전 12시 - 오후 1시)",
-				"해가 있는 오후시간 (오후 2시 - 오후 5시)",
-				"저녁시간 (오후 6시 - 오후 9시)",
-				"잠자기전 (오후 10시 - 오전 3시)",
-				"잠잘때 (오전 4시 ~ 오전 5시)",
-				"잠잘때 (오전 4시 ~ 오전 5시)",
-				"잠잘때 (오전 4시 ~ 오전 5시)",
-				"잠잘때 (오전 4시 ~ 오전 5시)",
-				"잠잘때 (오전 4시 ~ 오전 5시)",
+			optionsAnswers = listOf(
+				OptionAnswer(0, "아침시간 (오전 6시 - 오전 11시)"),
+				OptionAnswer(1,"점심시간 (오전 12시 - 오후 1시)"),
+				OptionAnswer(2,"해가 있는 오후시간 (오후 2시 - 오후 5시)"),
+				OptionAnswer(3,"저녁시간 (오후 6시 - 오후 9시)"),
+				OptionAnswer(4,"잠자기전 (오후 10시 - 오전 3시)"),
+				OptionAnswer(5,"잠잘때 (오전 4시 ~ 오전 5시)"),
+				OptionAnswer(6,"잠잘때 (오전 4시 ~ 오전 5시)"),
+				OptionAnswer(7,"잠잘때 (오전 4시 ~ 오전 5시)"),
+				OptionAnswer(8,"잠잘때 (오전 4시 ~ 오전 5시)"),
+				OptionAnswer(9,"잠잘때 (오전 4시 ~ 오전 5시)"),
 			)
 		),
 		description = "최대 2개까지 선택가능합니다\n설정한 시간에서 영상을 추천해드립니다"
