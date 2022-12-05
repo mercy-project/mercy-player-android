@@ -9,6 +9,8 @@
     <string name="confirm">확인</string>
     <string name="cancel">취소</string>
     <string name="next">다음</string>
+    <string name="done">완료</string>
+    <string name="previous">이전</string>
     <string name="ignore">무시</string>
     <string name="do_setting">설정하기</string>
     <string name="do_start">시작하기</string>
@@ -64,5 +66,7 @@
     <string name="on_boarding_subtitle1">동영상 시청습관을 커스텀1</string>
     <string name="on_boarding_subtitle2">동영상 시청습관을 커스텀2</string>
     <string name="on_boarding_subtitle3">동영상 시청습관을 커스텀3</string>
+
+    <string name="question_count">\u00A0of %d</string>
 
 </resources>

@@ -1,6 +1,5 @@
 package sideproject.mercy.presentation.ui.account.signin.view
 
-import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -14,7 +13,7 @@ import sideproject.mercy.domain.entity.ClickEntity
 import sideproject.mercy.presentation.common.AppConfig
 import sideproject.mercy.presentation.ui.account.signin.model.SignInActionEntity
 import sideproject.mercy.presentation.ui.account.signin.viewmodel.SignInViewModel
-import sideproject.mercy.presentation.ui.interests.main.view.InterestsMainActivity
+import sideproject.mercy.presentation.ui.survey.SurveyActivity
 import sideproject.mercy.presentation.ui.webview.view.WebViewActivity
 import sideproject.mercy.shared.authentication.manager.LoginManager
 import sideproject.mercy.shared.authentication.manager.UserInfoManager
@@ -129,8 +128,10 @@ class SignInActivity : AppCompatActivity() {
 	}
 
 	private fun moveToInterestsMainActivity() {
-		val intent = Intent(this, InterestsMainActivity::class.java)
-		startActivity(intent)
+		SurveyActivity.start(this)
+
+		// val intent = Intent(this, InterestsMainActivity::class.java)
+		// startActivity(intent)
 		finish()
 	}
 }

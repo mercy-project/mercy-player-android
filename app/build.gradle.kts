@@ -1,10 +1,8 @@
-import groovy.lang.ExpandoMetaClassCreationHandle.disable
-
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("android.extensions")
     kotlin("kapt")
+	id("kotlin-parcelize")
     id("kotlinx-serialization")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
@@ -51,8 +49,13 @@ android {
     }
 
     buildFeatures {
+	    compose = true
         dataBinding = true
     }
+
+	composeOptions {
+		kotlinCompilerExtensionVersion = "1.3.2"
+	}
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -161,6 +164,16 @@ dependencies {
 	implementation(Depends.Firebase.firebaseAnalyticsKtx)
 	implementation(Depends.Firebase.firebaseAuthKtx)
 	implementation(Depends.Firebase.playServicesAuth)
+
+	// Compose
+	implementation(platform(Depends.AndroidX.Compose.composeBom))
+	implementation(Depends.AndroidX.Compose.activityCompose)
+	implementation(Depends.AndroidX.Compose.foundation)
+	implementation(Depends.AndroidX.Compose.material)
+	implementation(Depends.AndroidX.Compose.uiTooling)
+	implementation(Depends.AndroidX.Compose.runtime)
+	implementation(Depends.AndroidX.Compose.runtimeLivedata)
+	implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     ktlint(Depends.Lint.ktlint)
     detektPlugins(Depends.Lint.detektFormatting)

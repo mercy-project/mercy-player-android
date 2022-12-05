@@ -1,6 +1,6 @@
 object Versions {
     object Android {
-        const val compileSdk = 31
+        const val compileSdk = 33
         const val minSdk = 23
         const val targetSdk = 31
         const val versionCode = 1
@@ -9,7 +9,7 @@ object Versions {
 }
 
 object Depends {
-    const val androidGradlePlugin = "com.android.tools.build:gradle:7.1.3"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:7.3.1"
 
     object AndroidX {
         const val core = "androidx.core:core-ktx:1.6.0"
@@ -44,10 +44,52 @@ object Depends {
             const val ui = "androidx.navigation:navigation-ui-ktx:$navigationVersion"
             const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
         }
+
+	    object Compose {
+		    const val composeBom = "androidx.compose:compose-bom:2022.11.00"
+
+		    // Choose one of the following:
+		    // Material Design 3
+		    const val material3 = "androidx.compose.material3:material3"
+		    // or Material Design 2
+		    const val material = "androidx.compose.material:material"
+		    // or skip Material Design and build directly on top of foundational components
+		    const val foundation = "androidx.compose.foundation:foundation"
+		    // or only import the main APIs for the underlying toolkit systems,
+		    // such as input and measurement/layout
+		    const val composeUi = "androidx.compose.ui:ui"
+
+		    // Android Studio Preview support
+		    const val toolingPreview = "androidx.compose.ui:ui-tooling-preview"
+		    const val uiTooling = "androidx.compose.ui:ui-tooling"
+		    const val uiToolingDebug = "androidx.compose.ui:ui-tooling"
+
+		    // UI Tests
+		    const val uiTestJunit4 = "androidx.compose.ui:ui-test-junit4"
+		    const val uiTestManifestDebug = "androidx.compose.ui:ui-test-manifest"
+
+		    // Optional - Included automatically by material, only add when you need
+		    // the icons but not the material library (e.g. when using Material3 or a
+		    // custom design system based on Foundation)
+		    const val materialIconsCore = "androidx.compose.material:material-icons-core"
+		    // Optional - Add full set of material icons
+		    const val materialIconsExtended = "androidx.compose.material:material-icons-extended"
+		    // Optional - Add window size utils
+		    const val material3WindowSize = "androidx.compose.material3:material3-window-size-class"
+
+		    // Optional - Integration with activities
+		    const val activityCompose = "androidx.activity:activity-compose:1.5.1"
+		    // Optional - Integration with ViewModels
+		    const val viewmodelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
+
+		    const val runtime = "androidx.compose.runtime:runtime"
+		    // Optional - Integration with LiveData
+		    const val runtimeLivedata = "androidx.compose.runtime:runtime-livedata"
+		}
     }
 
     object Kotlin {
-        private const val kotlinVersion = "1.6.21"
+        private const val kotlinVersion = "1.7.20"
         const val coroutineVersion = "1.6.4"
 
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"

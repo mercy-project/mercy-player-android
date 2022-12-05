@@ -60,12 +60,12 @@ class DebounceTouchListener(
     private val singleClick: (() -> Unit)?,
     private val doubleClick: (() -> Unit)?
 ) : View.OnTouchListener, GestureDetector.SimpleOnGestureListener() {
-    override fun onDoubleTap(e: MotionEvent?): Boolean {
-        doubleClick?.invoke()
-        return true
-    }
+	override fun onDoubleTap(e: MotionEvent): Boolean {
+		doubleClick?.invoke()
+		return true
+	}
 
-    override fun onSingleTapConfirmed(e: MotionEvent?): Boolean {
+    override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
         debounce(scope = MainScope()) {
             singleClick?.invoke()
         }
