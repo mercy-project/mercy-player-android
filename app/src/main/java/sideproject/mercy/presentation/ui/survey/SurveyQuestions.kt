@@ -35,6 +35,7 @@ import sideproject.mercy.presentation.common.theme.MercyTheme
 fun Question(
 	question: Question,
 	answer: Answer<*>?,
+	onExceedLimit: (Int) -> Unit,
 	onAnswer: (Answer<*>) -> Unit,
 	modifier: Modifier = Modifier
 ) {
@@ -89,6 +90,7 @@ fun Question(
 			is PossibleAnswer.MultipleChoice -> MultipleChoiceQuestion(
 				possibleAnswer = question.answer,
 				answer = answer as Answer.MultipleChoice?,
+				onExceedLimit = onExceedLimit,
 				onAnswerSelected = { answerId, selected ->
 					if (answer == null) {
 						onAnswer(Answer.MultipleChoice(setOf(answerId)))
@@ -104,13 +106,13 @@ fun Question(
 
 		Spacer(modifier = Modifier.height(24.dp))
 	}
-
 }
 
 @Composable
 private fun MultipleChoiceQuestion(
 	possibleAnswer: PossibleAnswer.MultipleChoice,
 	answer: Answer.MultipleChoice?,
+	onExceedLimit: (Int) -> Unit,
 	onAnswerSelected: (Int, Boolean) -> Unit,
 	modifier: Modifier = Modifier
 ) {
@@ -134,6 +136,14 @@ private fun MultipleChoiceQuestion(
 						.fillMaxWidth()
 						.clickable(
 							onClick = {
+								val savedAnswerCount = answer?.answersIds?.size ?: 0
+
+								val isExceedLimit = isExceedLimit(savedAnswerCount, possibleAnswer.answerLimit, !checkedState)
+								if (isExceedLimit) {
+									onExceedLimit(possibleAnswer.answerLimit)
+									return@clickable
+								}
+
 								checkedState = !checkedState
 								onAnswerSelected(optionAnswer.answerId, checkedState)
 							}
@@ -147,6 +157,14 @@ private fun MultipleChoiceQuestion(
 					Checkbox(
 						checked = checkedState,
 						onCheckedChange = { selected ->
+
+							val savedAnswerCount = answer?.answersIds?.size ?: 0
+							val isExceedLimit = isExceedLimit(savedAnswerCount, possibleAnswer.answerLimit, selected)
+							if (isExceedLimit) {
+								onExceedLimit(possibleAnswer.answerLimit)
+								return@Checkbox
+							}
+
 							checkedState = selected
 							onAnswerSelected(optionAnswer.answerId, selected)
 						},
@@ -158,6 +176,12 @@ private fun MultipleChoiceQuestion(
 	}
 }
 
+private fun isExceedLimit(
+	savedAnswerCount: Int,
+	limit: Int,
+	selected: Boolean
+): Boolean = selected && savedAnswerCount >= limit
+
 @Preview
 @Composable
 fun QuestionPreview() {
@@ -167,21 +191,22 @@ fun QuestionPreview() {
 		answer = PossibleAnswer.MultipleChoice(
 			optionsAnswers = listOf(
 				OptionAnswer(0, "아침시간 (오전 6시 - 오전 11시)"),
-				OptionAnswer(1,"점심시간 (오전 12시 - 오후 1시)"),
-				OptionAnswer(2,"해가 있는 오후시간 (오후 2시 - 오후 5시)"),
-				OptionAnswer(3,"저녁시간 (오후 6시 - 오후 9시)"),
-				OptionAnswer(4,"잠자기전 (오후 10시 - 오전 3시)"),
-				OptionAnswer(5,"잠잘때 (오전 4시 ~ 오전 5시)"),
-				OptionAnswer(6,"잠잘때 (오전 4시 ~ 오전 5시)"),
-				OptionAnswer(7,"잠잘때 (오전 4시 ~ 오전 5시)"),
-				OptionAnswer(8,"잠잘때 (오전 4시 ~ 오전 5시)"),
-				OptionAnswer(9,"잠잘때 (오전 4시 ~ 오전 5시)"),
-			)
+				OptionAnswer(1, "점심시간 (오전 12시 - 오후 1시)"),
+				OptionAnswer(2, "해가 있는 오후시간 (오후 2시 - 오후 5시)"),
+				OptionAnswer(3, "저녁시간 (오후 6시 - 오후 9시)"),
+				OptionAnswer(4, "잠자기전 (오후 10시 - 오전 3시)"),
+				OptionAnswer(5, "잠잘때 (오전 4시 ~ 오전 5시)"),
+				OptionAnswer(6, "잠잘때 (오전 4시 ~ 오전 5시)"),
+				OptionAnswer(7, "잠잘때 (오전 4시 ~ 오전 5시)"),
+				OptionAnswer(8, "잠잘때 (오전 4시 ~ 오전 5시)"),
+				OptionAnswer(9, "잠잘때 (오전 4시 ~ 오전 5시)"),
+			),
+			answerLimit = 2
 		),
 		description = "최대 2개까지 선택가능합니다\n설정한 시간에서 영상을 추천해드립니다"
 	)
 
 	MercyTheme {
-		Question(question = question, answer = null, onAnswer = {})
+		Question(question = question, answer = null, onExceedLimit = {}, onAnswer = {})
 	}
 }

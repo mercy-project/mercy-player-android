@@ -7,8 +7,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.livedata.observeAsState
+import sideproject.mercy.R
 import sideproject.mercy.presentation.common.theme.MercyTheme
 import sideproject.mercy.presentation.ui.main.view.MainActivity
+import sideproject.mercy.utils.extensions.showToast
 
 class SurveyActivity : AppCompatActivity() {
 
@@ -25,6 +27,7 @@ class SurveyActivity : AppCompatActivity() {
 					when (surveyState) {
 						is SurveyState.Questions -> SurveyQuestionsScreen(
 							questions = surveyState,
+							onExceedLimit = { showExceedLimitToast(it) },
 							onDonePressed = {
 								viewModel.computeResult(surveyState)
 							},
@@ -37,6 +40,11 @@ class SurveyActivity : AppCompatActivity() {
 				}
 			}
 		}
+	}
+
+	private fun showExceedLimitToast(limit: Int) {
+		val exceedLimitMessage = String.format(getString(R.string.format_selected_limit), limit)
+		showToast(exceedLimitMessage)
 	}
 
 	private fun moveToMainActivity() {
