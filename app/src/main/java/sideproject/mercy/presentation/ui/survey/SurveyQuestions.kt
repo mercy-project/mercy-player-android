@@ -116,7 +116,7 @@ private fun MultipleChoiceQuestion(
 ) {
 	Column(modifier = modifier) {
 		for (optionAnswer in possibleAnswer.optionsAnswers) {
-			var checkedState by remember {
+			var checkedState by remember(answer) {
 				val selectedOption = answer?.answersIds?.contains(optionAnswer.answerId)
 				mutableStateOf(selectedOption ?: false)
 			}
