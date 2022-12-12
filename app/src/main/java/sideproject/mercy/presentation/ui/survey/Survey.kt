@@ -21,7 +21,10 @@ data class Question(
  */
 sealed class PossibleAnswer {
 	data class SingleChoice(val optionAnswers: List<OptionAnswer>) : PossibleAnswer()
-	data class MultipleChoice(val optionsAnswers: List<OptionAnswer>) : PossibleAnswer()
+	data class MultipleChoice(
+		val optionsAnswers: List<OptionAnswer>,
+		val answerLimit: Int = Int.MAX_VALUE
+	) : PossibleAnswer()
 }
 
 data class OptionAnswer(

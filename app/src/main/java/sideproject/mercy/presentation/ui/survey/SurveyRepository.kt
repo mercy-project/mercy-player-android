@@ -16,7 +16,8 @@ private val mercyQuestions = mutableListOf(
 				OptionAnswer(5, "Pets & Animals 애완동물"),
 				OptionAnswer(6, "Entertainment 엔터테인먼트"),
 				OptionAnswer(7, "Movies & Animation 영화/ 애니메이션")
-			)
+			),
+			answerLimit = 3
 		)
 	),
 	Question(
@@ -30,7 +31,8 @@ private val mercyQuestions = mutableListOf(
 				OptionAnswer(13,"저녁시간 (오후 6시 - 오후 9시)"),
 				OptionAnswer(14,"잠자기전 (오후 10시 - 오전 3시)"),
 				OptionAnswer(15,"잠잘때 (오전 4시 ~ 오전 5시)")
-			)
+			),
+			answerLimit = 2
 		),
 		description = "최대 2개까지 선택가능합니다\n설정한 시간에서 영상을 추천해드립니다"
 	)

@@ -36,6 +36,7 @@ import sideproject.mercy.utils.extensions.orFalse
 @Composable
 fun SurveyQuestionsScreen(
 	questions: SurveyState.Questions,
+	onExceedLimit: (Int) -> Unit,
 	onDonePressed: () -> Unit,
 	onBackPressed: () -> Unit
 ) {
@@ -56,6 +57,7 @@ fun SurveyQuestionsScreen(
 				Question(
 					question = questionState.question,
 					answer = questionState.answer,
+					onExceedLimit = onExceedLimit,
 					onAnswer = {
 						questionState.answer = it
 						questionState.enableNext = (it as? Answer.MultipleChoice)?.answersIds?.isNotEmpty().orFalse()
