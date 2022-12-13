@@ -6,4 +6,6 @@ sealed class SignInActionEntity : ActionEntity() {
 	object SignInGoogle : SignInActionEntity()
 	object TermsOfService : SignInActionEntity()
 	object PrivacyPolicy : SignInActionEntity()
+	object MoveToWelcome : SignInActionEntity()
+	object MoveToSurvey : SignInActionEntity()
 }
