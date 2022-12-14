@@ -13,6 +13,7 @@ import sideproject.mercy.domain.entity.ClickEntity
 import sideproject.mercy.presentation.common.AppConfig
 import sideproject.mercy.presentation.ui.account.signin.model.SignInActionEntity
 import sideproject.mercy.presentation.ui.account.signin.viewmodel.SignInViewModel
+import sideproject.mercy.presentation.ui.account.welcome.view.WelcomeActivity
 import sideproject.mercy.presentation.ui.survey.SurveyActivity
 import sideproject.mercy.presentation.ui.webview.view.WebViewActivity
 import sideproject.mercy.shared.authentication.manager.LoginManager
@@ -126,7 +127,8 @@ class SignInActivity : AppCompatActivity() {
 	}
 
 	private fun moveToWelcome() {
-		// Todo: 웰컴 페이지 연결
+		WelcomeActivity.start(this)
+		finish()
 	}
 
 	private fun moveToSurvey() {
