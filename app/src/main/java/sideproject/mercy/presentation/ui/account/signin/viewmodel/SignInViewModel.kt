@@ -14,9 +14,8 @@ class SignInViewModel @Inject constructor(
 	 */
 	fun checkNextStep() {
 		// Todo: preference 에서 step 을 저장 후 분기 (firebase token + boolean)
-		// notifyActionEvent(SignInActionEntity.MoveToWelcome)
-
-		notifyActionEvent(SignInActionEntity.MoveToSurvey)
+		notifyActionEvent(SignInActionEntity.MoveToWelcome)
+		// notifyActionEvent(SignInActionEntity.MoveToSurvey)
 	}
 
 	fun onClickTermsOfService() {

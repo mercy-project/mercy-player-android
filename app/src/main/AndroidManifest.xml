@@ -38,6 +38,7 @@
         <activity android:name=".presentation.common.activity.PermissionCheckActivity"/>
         <activity android:name=".presentation.ui.webview.view.WebViewActivity"/>
         <activity android:name=".presentation.ui.survey.SurveyActivity"/>
+        <activity android:name=".presentation.ui.account.welcome.view.WelcomeActivity"/>
 
         <provider
             android:name="androidx.startup.InitializationProvider"
