@@ -68,7 +68,7 @@ class SignInActivity : AppCompatActivity() {
 		}
 		observeChangedLogin { isSignedIn ->
 			if (isSignedIn) {
-				moveToNext()
+				viewModel.checkNextStep()
 			}
 		}
 	}
@@ -101,6 +101,14 @@ class SignInActivity : AppCompatActivity() {
 					url = AppConfig.URL.PRIVACY_POLICY_URL
 				)
 			}
+
+			is SignInActionEntity.MoveToWelcome -> {
+				moveToWelcome()
+			}
+
+			is SignInActionEntity.MoveToSurvey -> {
+				moveToSurvey()
+			}
 		}
 	}
 
@@ -117,21 +125,12 @@ class SignInActivity : AppCompatActivity() {
 		)
 	}
 
-	private fun moveToNext() {
-		// Todo: 웰컴 페이지 보여줄지, 관심사 화면으로 바로 넘어갈지 분기처리 필요
-		// moveToWelcomeActivity()
-		moveToInterestsMainActivity()
+	private fun moveToWelcome() {
+		// Todo: 웰컴 페이지 연결
 	}
 
-	private fun moveToWelcomeActivity() {
-
-	}
-
-	private fun moveToInterestsMainActivity() {
+	private fun moveToSurvey() {
 		SurveyActivity.start(this)
-
-		// val intent = Intent(this, InterestsMainActivity::class.java)
-		// startActivity(intent)
 		finish()
 	}
 }

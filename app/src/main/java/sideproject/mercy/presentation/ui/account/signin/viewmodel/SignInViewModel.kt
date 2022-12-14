@@ -9,6 +9,16 @@ import sideproject.mercy.presentation.ui.account.signin.model.SignInActionEntity
 class SignInViewModel @Inject constructor(
 ): BaseViewModel() {
 
+	/**
+	 * 웰컴 페이지로 이동할지 설문조사로 이동할지 분기
+	 */
+	fun checkNextStep() {
+		// Todo: preference 에서 step 을 저장 후 분기 (firebase token + boolean)
+		// notifyActionEvent(SignInActionEntity.MoveToWelcome)
+
+		notifyActionEvent(SignInActionEntity.MoveToSurvey)
+	}
+
 	fun onClickTermsOfService() {
 		notifyActionEvent(SignInActionEntity.TermsOfService)
 	}
