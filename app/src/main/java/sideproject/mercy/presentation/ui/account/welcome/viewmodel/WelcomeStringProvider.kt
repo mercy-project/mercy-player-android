@@ -19,7 +19,7 @@ class WelcomeStringProvider @Inject constructor(
 	fun getString(code: Code): String {
 		return when (code) {
 			Code.WELCOME_HELLO -> getStringRes(R.string.welcome_hello)
-			Code.WELCOME_EXPLAIN -> getStringRes(R.string.welcome_explain)
+			Code.WELCOME_EXPLAIN -> getStringRes(R.string.welcome_need_information)
 		}
 	}
 

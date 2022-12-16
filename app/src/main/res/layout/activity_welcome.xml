@@ -24,7 +24,7 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/welcome_explain" />
+            tools:text="@string/welcome_need_information" />
 
         <androidx.appcompat.widget.AppCompatTextView
             style="@style/ButtonFullGreen"

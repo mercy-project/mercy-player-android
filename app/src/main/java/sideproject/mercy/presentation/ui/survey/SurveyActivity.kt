@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.livedata.observeAsState
 import sideproject.mercy.R
 import sideproject.mercy.presentation.common.theme.MercyTheme
-import sideproject.mercy.presentation.ui.main.view.MainActivity
+import sideproject.mercy.presentation.ui.survey.complete.view.SurveyCompleteActivity
 import sideproject.mercy.utils.extensions.showToast
 
 class SurveyActivity : AppCompatActivity() {
@@ -35,7 +35,7 @@ class SurveyActivity : AppCompatActivity() {
 								onBackPressedDispatcher.onBackPressed()
 							}
 						)
-						is SurveyState.Result -> moveToMainActivity()
+						is SurveyState.Result -> moveToSurveyComplete()
 					}
 				}
 			}
@@ -47,12 +47,8 @@ class SurveyActivity : AppCompatActivity() {
 		showToast(exceedLimitMessage)
 	}
 
-	private fun moveToMainActivity() {
-		val intent = Intent(this, MainActivity::class.java).apply {
-			flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-		}
-
-		startActivity(intent)
+	private fun moveToSurveyComplete() {
+		SurveyCompleteActivity.start(this)
 		finish()
 	}
 
