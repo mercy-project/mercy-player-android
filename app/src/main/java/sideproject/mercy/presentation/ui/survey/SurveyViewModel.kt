@@ -39,6 +39,22 @@ class SurveyViewModel(
 
 		return null
 	}
+
+	fun onTimePicked(questionId: Int, time: String) {
+		updateStateWithActionResult(questionId, SurveyActionResult.Time(time))
+	}
+
+	private fun updateStateWithActionResult(questionId: Int, result: SurveyActionResult) {
+		val latestState = _uiState.value
+		if (latestState != null && latestState is SurveyState.Questions) {
+			val question =
+				latestState.questionsState.first { questionState ->
+					questionState.question.id == questionId
+				}
+			question.answer = Answer.Action(result)
+			question.enableNext = true
+		}
+	}
 }
 
 class SurveyViewModelFactory : ViewModelProvider.Factory {

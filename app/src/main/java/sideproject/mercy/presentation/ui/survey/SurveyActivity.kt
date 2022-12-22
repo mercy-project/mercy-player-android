@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.livedata.observeAsState
+import com.google.android.material.timepicker.MaterialTimePicker
 import sideproject.mercy.R
 import sideproject.mercy.presentation.common.theme.MercyTheme
 import sideproject.mercy.presentation.ui.survey.complete.view.SurveyCompleteActivity
@@ -27,6 +28,7 @@ class SurveyActivity : AppCompatActivity() {
 					when (surveyState) {
 						is SurveyState.Questions -> SurveyQuestionsScreen(
 							questions = surveyState,
+							onAction = { id, action -> handleSurveyAction(id, action) },
 							onExceedLimit = { showExceedLimitToast(it) },
 							onDonePressed = {
 								viewModel.computeResult(surveyState)
@@ -39,6 +41,20 @@ class SurveyActivity : AppCompatActivity() {
 					}
 				}
 			}
+		}
+	}
+
+	private fun handleSurveyAction(questionId: Int, actionType: SurveyActionType) {
+		when (actionType) {
+			SurveyActionType.PICK_TIME -> showDatePicker(questionId)
+		}
+	}
+
+	private fun showDatePicker(questionId: Int) {
+		val picker = MaterialTimePicker.Builder().build()
+		picker.show(supportFragmentManager, picker.toString())
+		picker.addOnPositiveButtonClickListener {
+			viewModel.onTimePicked(questionId, "${picker.hour}:${picker.minute}")
 		}
 	}
 

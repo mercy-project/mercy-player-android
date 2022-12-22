@@ -36,6 +36,7 @@ import sideproject.mercy.utils.extensions.orFalse
 @Composable
 fun SurveyQuestionsScreen(
 	questions: SurveyState.Questions,
+	onAction: (Int, SurveyActionType) -> Unit,
 	onExceedLimit: (Int) -> Unit,
 	onDonePressed: () -> Unit,
 	onBackPressed: () -> Unit
@@ -62,6 +63,7 @@ fun SurveyQuestionsScreen(
 						questionState.answer = it
 						questionState.enableNext = (it as? Answer.MultipleChoice)?.answersIds?.isNotEmpty().orFalse()
 					},
+					onAction = onAction,
 					modifier = Modifier
 						.fillMaxSize()
 						.padding(innerPadding)
