@@ -16,14 +16,26 @@ data class Question(
 	val description: String? = null
 )
 
+enum class SurveyActionType { PICK_TIME }
+
+sealed class SurveyActionResult {
+	data class Time(val time: String) : SurveyActionResult()
+}
+
 /**
  * 답변 가능한 Type
  */
 sealed class PossibleAnswer {
 	data class SingleChoice(val optionAnswers: List<OptionAnswer>) : PossibleAnswer()
+
 	data class MultipleChoice(
 		val optionsAnswers: List<OptionAnswer>,
 		val answerLimit: Int = Int.MAX_VALUE
+	) : PossibleAnswer()
+
+	data class Action(
+		val label: String,
+		val actionType: SurveyActionType
 	) : PossibleAnswer()
 }
 
@@ -43,6 +55,8 @@ sealed class Answer<T : PossibleAnswer> {
 	data class MultipleChoice(
 		val answersIds: Set<Int>
 	) : Answer<PossibleAnswer.MultipleChoice>()
+
+	data class Action(val result: SurveyActionResult) : Answer<PossibleAnswer.Action>()
 }
 
 /**
