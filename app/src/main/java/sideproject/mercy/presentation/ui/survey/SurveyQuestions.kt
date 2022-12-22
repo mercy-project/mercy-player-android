@@ -1,5 +1,6 @@
 package sideproject.mercy.presentation.ui.survey
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Button
 import androidx.compose.material.Checkbox
 import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.ContentAlpha
@@ -27,6 +29,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import sideproject.mercy.presentation.common.theme.MercyTheme
@@ -37,6 +40,7 @@ fun Question(
 	answer: Answer<*>?,
 	onExceedLimit: (Int) -> Unit,
 	onAnswer: (Answer<*>) -> Unit,
+	onAction: (Int, SurveyActionType) -> Unit,
 	modifier: Modifier = Modifier
 ) {
 
@@ -98,6 +102,14 @@ fun Question(
 						onAnswer(answer.withAnswerSelected(answerId, selected))
 					}
 				},
+				modifier = Modifier.fillMaxWidth()
+			)
+
+			is PossibleAnswer.Action -> ActionQuestion(
+				questionId = question.id,
+				possibleAnswer = question.answer,
+				answer = answer as Answer.Action?,
+				onAction = onAction,
 				modifier = Modifier.fillMaxWidth()
 			)
 
@@ -182,6 +194,51 @@ private fun isExceedLimit(
 	selected: Boolean
 ): Boolean = selected && savedAnswerCount >= limit
 
+@Composable
+private fun ActionQuestion(
+	questionId: Int,
+	possibleAnswer: PossibleAnswer.Action,
+	answer: Answer.Action?,
+	onAction: (Int, SurveyActionType) -> Unit,
+	modifier: Modifier = Modifier
+) {
+	when (possibleAnswer.actionType) {
+		SurveyActionType.PICK_TIME -> {
+			TimeQuestion(
+				questionId = questionId,
+				answerLabel = possibleAnswer.label,
+				answer = answer,
+				onAction = onAction,
+				modifier = modifier
+			)
+		}
+	}
+}
+
+@Composable
+private fun TimeQuestion(
+	questionId: Int,
+	answerLabel: String,
+	answer: Answer.Action?,
+	onAction: (Int, SurveyActionType) -> Unit,
+	modifier: Modifier = Modifier
+) {
+	Button(
+		onClick = { onAction(questionId, SurveyActionType.PICK_TIME) },
+		modifier = modifier.padding(vertical = 20.dp)
+	) {
+		Text(text = answerLabel)
+	}
+
+	if (answer != null && answer.result is SurveyActionResult.Time) {
+		Text(
+			text = answer.result.time,
+			style = MaterialTheme.typography.h4,
+			modifier = Modifier.padding(vertical = 20.dp)
+		)
+	}
+}
+
 @Preview
 @Composable
 fun QuestionPreview() {
@@ -207,6 +264,6 @@ fun QuestionPreview() {
 	)
 
 	MercyTheme {
-		Question(question = question, answer = null, onExceedLimit = {}, onAnswer = {})
+		Question(question = question, answer = null, onAction = { _, _ -> }, onExceedLimit = {}, onAnswer = {})
 	}
 }

@@ -1,6 +1,8 @@
 package sideproject.mercy.presentation.ui.survey
 
+import sideproject.mercy.presentation.ui.survey.PossibleAnswer.Action
 import sideproject.mercy.presentation.ui.survey.PossibleAnswer.MultipleChoice
+import sideproject.mercy.presentation.ui.survey.SurveyActionType.PICK_TIME
 
 private val mercyQuestions = mutableListOf(
 	Question(
@@ -35,6 +37,15 @@ private val mercyQuestions = mutableListOf(
 			answerLimit = 2
 		),
 		description = "최대 2개까지 선택가능합니다\n설정한 시간에서 영상을 추천해드립니다"
+	),
+	Question(
+		id = 3,
+		questionText = "하루에 동영상은\n몇시간(분)을 보시나요?",
+		answer = Action(
+			label = "시간/분 설정",
+			actionType = PICK_TIME
+		),
+		description = "시청 시간을 설정하면\n설정한 시간을 넘겼을 때, 알림해드려요!"
 	)
 )
 
